@@ -1,0 +1,40 @@
+html {
+  min-width: 320px;
+  height: 100%;
+  background: #f5f5ef;
+}
+
+body {
+  min-width: 320px;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #0e5a63;
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background: #111817;
+  }
+
+  button:focus-visible,
+  textarea:focus-visible {
+    outline-color: #57b9a9;
+  }
+}

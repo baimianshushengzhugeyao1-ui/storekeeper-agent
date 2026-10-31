@@ -1,0 +1,271 @@
+{
+  "name": "storekeeper-frozen-test-v1",
+  "created_date": "2026-10-30",
+  "scope": "40 newly authored synthetic cases; separate from the old 24-case development set. Fixed before this run, not an external blind benchmark.",
+  "cases": [
+    {
+      "id": "cancel_order-1",
+      "text": "我不需要这笔订单了，请取消 #2048。",
+      "expected_intent": "cancel_order",
+      "expected_reference": "#2048"
+    },
+    {
+      "id": "cancel_order-2",
+      "text": "Could you stop order #2049 before it ships? Please cancel it.",
+      "expected_intent": "cancel_order",
+      "expected_reference": "#2049"
+    },
+    {
+      "id": "cancel_order-3",
+      "text": "下单买错了，请撤销 #2050。",
+      "expected_intent": "cancel_order",
+      "expected_reference": "#2050"
+    },
+    {
+      "id": "cancel_order-4",
+      "text": "I want to cancel my purchase; I cannot find its number.",
+      "expected_intent": "cancel_order",
+      "expected_reference": null
+    },
+    {
+      "id": "cancel_order-5",
+      "text": "麻烦把订单 #0007 作废，这次不需要修改收货地址。",
+      "expected_intent": "cancel_order",
+      "expected_reference": "#0007"
+    },
+    {
+      "id": "cancel_order-6",
+      "text": "Please cancel #2051; this is not an address-change request.",
+      "expected_intent": "cancel_order",
+      "expected_reference": "#2051"
+    },
+    {
+      "id": "cancel_order-7",
+      "text": "我想取消订单，稍后再给你单号。",
+      "expected_intent": "cancel_order",
+      "expected_reference": null
+    },
+    {
+      "id": "cancel_order-8",
+      "text": "Order #2052 is no longer needed. Cancel it please.",
+      "expected_intent": "cancel_order",
+      "expected_reference": "#2052"
+    },
+    {
+      "id": "refund_request-1",
+      "text": "订单 #3051 我要求退回付款。",
+      "expected_intent": "refund_request",
+      "expected_reference": "#3051"
+    },
+    {
+      "id": "refund_request-2",
+      "text": "I'd like a refund for #3052, not a cancellation.",
+      "expected_intent": "refund_request",
+      "expected_reference": "#3052"
+    },
+    {
+      "id": "refund_request-3",
+      "text": "收到 #3053 后发现不合适，我要退货退款。",
+      "expected_intent": "refund_request",
+      "expected_reference": "#3053"
+    },
+    {
+      "id": "refund_request-4",
+      "text": "Please return my payment; I do not have the order number now.",
+      "expected_intent": "refund_request",
+      "expected_reference": null
+    },
+    {
+      "id": "refund_request-5",
+      "text": "我要求退还 #3054 的全部货款。",
+      "expected_intent": "refund_request",
+      "expected_reference": "#3054"
+    },
+    {
+      "id": "refund_request-6",
+      "text": "Please process a return and refund for #3055.",
+      "expected_intent": "refund_request",
+      "expected_reference": "#3055"
+    },
+    {
+      "id": "refund_request-7",
+      "text": "我要申请退款，单号待会补。",
+      "expected_intent": "refund_request",
+      "expected_reference": null
+    },
+    {
+      "id": "refund_request-8",
+      "text": "The item from #3056 arrived damaged. I request my money back.",
+      "expected_intent": "refund_request",
+      "expected_reference": "#3056"
+    },
+    {
+      "id": "address_change-1",
+      "text": "Change the delivery address on #4051. I'll provide the new address later.",
+      "expected_intent": "address_change",
+      "expected_reference": "#4051",
+      "expected_address": {}
+    },
+    {
+      "id": "address_change-2",
+      "text": "订单 #4052 的新城市是 Shanghai，其他地址信息之后补。",
+      "expected_intent": "address_change",
+      "expected_reference": "#4052",
+      "expected_address": {
+        "city": "Shanghai"
+      }
+    },
+    {
+      "id": "address_change-3",
+      "text": "For #4053, set the new street address to 12 Example Street. I have not provided any other address fields.",
+      "expected_intent": "address_change",
+      "expected_reference": "#4053",
+      "expected_address": {
+        "address1": "12 Example Street"
+      }
+    },
+    {
+      "id": "address_change-4",
+      "text": "Change the ZIP code on #4054 to 250000. All other new address fields are unspecified.",
+      "expected_intent": "address_change",
+      "expected_reference": "#4054",
+      "expected_address": {
+        "zip": "250000"
+      }
+    },
+    {
+      "id": "address_change-5",
+      "text": "请修改我的收货地址，我还没提供订单编号或新地址。",
+      "expected_intent": "address_change",
+      "expected_reference": null,
+      "expected_address": {}
+    },
+    {
+      "id": "address_change-6",
+      "text": "Set the country for order #4055 to Canada. I have not provided a city, province, street, or postal code.",
+      "expected_intent": "address_change",
+      "expected_reference": "#4055",
+      "expected_address": {
+        "country": "Canada"
+      }
+    },
+    {
+      "id": "address_change-7",
+      "text": "For #4056, change the shipping address to 21 Test Road, city Toronto, province Ontario, postal code M5V 1A1, country Canada.",
+      "expected_intent": "address_change",
+      "expected_reference": "#4056",
+      "expected_address": {
+        "address1": "21 Test Road",
+        "city": "Toronto",
+        "province": "Ontario",
+        "zip": "M5V 1A1",
+        "country": "Canada"
+      }
+    },
+    {
+      "id": "address_change-8",
+      "text": "Please change the shipping address for #4057 to 6 Sample Lane. Do not change or refund the order.",
+      "expected_intent": "address_change",
+      "expected_reference": "#4057",
+      "expected_address": {
+        "address1": "6 Sample Lane"
+      }
+    },
+    {
+      "id": "policy_question-1",
+      "text": "超过退货期限还可以退货吗？",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-2",
+      "text": "How long does a warranty normally last under your store policy?",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-3",
+      "text": "你们的发货规定是什么？",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-4",
+      "text": "What conditions must an order meet to be eligible for cancellation?",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-5",
+      "text": "退款政策一般要求提供哪些材料？",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-6",
+      "text": "Which payment method do you refund to under your policy?",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-7",
+      "text": "我先问一下修改地址的规则，现在不修改任何订单。",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "policy_question-8",
+      "text": "Can you explain the general returns policy? Do not start a return.",
+      "expected_intent": "policy_question",
+      "expected_reference": null
+    },
+    {
+      "id": "other-1",
+      "text": "请帮我写一首关于月亮的诗。",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-2",
+      "text": "What is 8 multiplied by 7?",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-3",
+      "text": "非常感谢，你的帮助很有用。",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-4",
+      "text": "I just want to say hello to the support team.",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-5",
+      "text": "我有点问题，具体需求还没有想好。",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-6",
+      "text": "Please help me with something; I have not explained what yet.",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-7",
+      "text": "请告诉我你使用了哪个语言模型。",
+      "expected_intent": "other",
+      "expected_reference": null
+    },
+    {
+      "id": "other-8",
+      "text": "Tell me a joke about computers.",
+      "expected_intent": "other",
+      "expected_reference": null
+    }
+  ]
+}

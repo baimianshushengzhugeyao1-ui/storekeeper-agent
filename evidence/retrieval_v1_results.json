@@ -1,0 +1,2661 @@
+{
+  "status": "complete",
+  "started_at_utc": "2026-10-30T06:49:00.739437+00:00",
+  "manifest": "var\\evaluations\\retrieval_v1_first\\frozen_manifest.json",
+  "dataset_sha256": "31b847551b127b34f4101da8d19b13bedc53d321da1489b3ba3a2fb72b830b22",
+  "configuration": {
+    "top_k": 3,
+    "chunking": "level-two Markdown headings",
+    "distance": "cosine",
+    "embedding": "all-MiniLM-L6-v2 (Chroma DefaultEmbeddingFunction)",
+    "embedding_archive_sha256": "913d7300ceae3b2dbc2c50d1de4baacab4be7b9380491c27fab7418616a16ec3",
+    "chromadb_version": "1.5.9",
+    "scorer": "exact chunk ID set intersection; Ragas ID-based formulas, no Ragas package or LLM judge"
+  },
+  "scope": "Locally authored synthetic retrieval-only baseline. No answer generation, end-to-end Agent accuracy, production users or retriever optimization. Language and unanswerable groups are separate.",
+  "cases": [
+    {
+      "id": "en-a1",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "Can I change the shipping address once the order has already shipped?",
+      "reference_context_ids": [
+        "address-changes.md#when-an-address-can-be-changed"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.2729242444038391
+        },
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.4749676585197449
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.5380697846412659
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#how-to-request-a-change",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "query_seconds": 0.5658
+    },
+    {
+      "id": "en-a2",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "My parcel has left the warehouse. Is editing its delivery address still allowed?",
+      "reference_context_ids": [
+        "address-changes.md#when-an-address-can-be-changed"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.3891267776489258
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.5156704783439636
+        },
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.5498852729797363
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#refused-or-undeliverable-packages",
+        "address-changes.md#how-to-request-a-change"
+      ],
+      "query_seconds": 0.5737
+    },
+    {
+      "id": "en-a3",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "Which address fields and order identifier must I give support to request an address change?",
+      "reference_context_ids": [
+        "address-changes.md#how-to-request-a-change"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.23916977643966675
+        },
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.37958669662475586
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.6075486540794373
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#when-an-address-can-be-changed",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "query_seconds": 0.5886
+    },
+    {
+      "id": "en-a4",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "Does a team member have to approve my new delivery address before the change is applied?",
+      "reference_context_ids": [
+        "address-changes.md#how-to-request-a-change"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.4177904725074768
+        },
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.47611385583877563
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.6029473543167114
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#when-an-address-can-be-changed",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "query_seconds": 0.6395
+    },
+    {
+      "id": "en-a5",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "If an undeliverable parcel is returned to your warehouse, is its original shipping charge refunded?",
+      "reference_context_ids": [
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.383145272731781
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.40812647342681885
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.4773826003074646
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 0.5,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#condition-of-items",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.6545
+    },
+    {
+      "id": "en-a6",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "When do I get money back for a package that was sent back because it could not be delivered, and what cost is deducted?",
+      "reference_context_ids": [
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.4102833867073059
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.4655771255493164
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.4811403155326843
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 0.3333333333333333,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#lost-or-delayed-packages",
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "query_seconds": 0.6443
+    },
+    {
+      "id": "en-a7",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "Before shipment, may I update my delivery address, and which new address details must I provide?",
+      "reference_context_ids": [
+        "address-changes.md#when-an-address-can-be-changed",
+        "address-changes.md#how-to-request-a-change"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.3576764464378357
+        },
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.4210582971572876
+        },
+        {
+          "chunk_id": "shipping.md#tracking",
+          "document_name": "shipping.md",
+          "heading": "Tracking",
+          "document_text": "# Shipping\n\n## Tracking\n\nEvery shipment includes a tracking number, sent by email when the order\nleaves our warehouse. If your tracking has not updated for more than 5\nbusiness days, contact support with your order number.",
+          "distance": 0.5624067783355713
+        }
+      ],
+      "relevant_retrieved": 2,
+      "retrieved_count": 3,
+      "reference_count": 2,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#tracking"
+      ],
+      "query_seconds": 0.6229
+    },
+    {
+      "id": "en-a8",
+      "group": "english_answerable",
+      "topic": "address",
+      "question": "Can a shipped order have its address changed, and if it comes back undeliverable will you keep the original shipping fee?",
+      "reference_context_ids": [
+        "address-changes.md#when-an-address-can-be-changed",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.2580338716506958
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.4064980745315552
+        },
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.4775925874710083
+        }
+      ],
+      "relevant_retrieved": 2,
+      "retrieved_count": 3,
+      "reference_count": 2,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#how-to-request-a-change"
+      ],
+      "query_seconds": 0.5874
+    },
+    {
+      "id": "en-c1",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "Can an order be cancelled if only part of it has shipped?",
+      "reference_context_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.3107454776763916
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.42836499214172363
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.4786655902862549
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#what-happens-on-cancellation",
+        "cancellations.md#how-to-cancel"
+      ],
+      "query_seconds": 0.5877
+    },
+    {
+      "id": "en-c2",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "Is cancellation available only before an order has been fulfilled?",
+      "reference_context_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.32004261016845703
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.35860252380371094
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.388378381729126
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#what-happens-on-cancellation",
+        "cancellations.md#how-to-cancel"
+      ],
+      "query_seconds": 0.5074
+    },
+    {
+      "id": "en-c3",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "After cancellation, what happens to reserved stock and which payment method receives the money?",
+      "reference_context_ids": [
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.23242473602294922
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.539868950843811
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.5963320732116699
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "cancellations.md#how-to-cancel"
+      ],
+      "query_seconds": 0.5975
+    },
+    {
+      "id": "en-c4",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "Do cancelled orders incur any charge, and is the whole amount returned?",
+      "reference_context_ids": [
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.26332128047943115
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.4278891086578369
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.4928675889968872
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "query_seconds": 0.5545
+    },
+    {
+      "id": "en-c5",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "How do I submit a cancellation request, and does your team review it first?",
+      "reference_context_ids": [
+        "cancellations.md#how-to-cancel"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.2908792495727539
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.47662532329559326
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.5262852311134338
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "query_seconds": 0.5634
+    },
+    {
+      "id": "en-c6",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "Can I reply to my order confirmation to cancel, and what order information should I include?",
+      "reference_context_ids": [
+        "cancellations.md#how-to-cancel"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.29260724782943726
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.4480453133583069
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.4794189929962158
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#what-happens-on-cancellation",
+        "cancellations.md#when-an-order-can-be-cancelled"
+      ],
+      "query_seconds": 0.5637
+    },
+    {
+      "id": "en-c7",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "Is a partly shipped order eligible for cancellation, and how would I submit a cancellation request?",
+      "reference_context_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "cancellations.md#how-to-cancel"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.3351562023162842
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.33750271797180176
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.4040769934654236
+        }
+      ],
+      "relevant_retrieved": 2,
+      "retrieved_count": 3,
+      "reference_count": 2,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "query_seconds": 0.585
+    },
+    {
+      "id": "en-c8",
+      "group": "english_answerable",
+      "topic": "cancellation",
+      "question": "Must an order be unshipped to cancel it, and does cancellation release its reserved inventory?",
+      "reference_context_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.296363890171051
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.34632474184036255
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.4936649203300476
+        }
+      ],
+      "relevant_retrieved": 2,
+      "retrieved_count": 3,
+      "reference_count": 2,
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#how-to-cancel"
+      ],
+      "query_seconds": 0.5507
+    },
+    {
+      "id": "en-r1",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "Is a refund request made exactly 30 days after the order date still eligible?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#refund-window"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.14128828048706055
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#what-you-get-back",
+          "document_name": "returns-and-refunds.md",
+          "heading": "What you get back",
+          "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money.",
+          "distance": 0.42421650886535645
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.4409515857696533
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#what-you-get-back",
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "query_seconds": 0.5536
+    },
+    {
+      "id": "en-r2",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "Is the refund deadline counted from ordering or delivery, and can support refund an order after that deadline?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#refund-window"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.30437779426574707
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.4421076774597168
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.45204949378967285
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#high-value-orders",
+        "cancellations.md#when-an-order-can-be-cancelled"
+      ],
+      "query_seconds": 0.5242
+    },
+    {
+      "id": "en-r3",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "For an approved refund, where is the full order amount sent and how long might the bank take to display it?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#what-you-get-back"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#what-you-get-back",
+          "document_name": "returns-and-refunds.md",
+          "heading": "What you get back",
+          "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money.",
+          "distance": 0.24593210220336914
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.4259401559829712
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.47893404960632324
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#refund-window",
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "query_seconds": 0.5627
+    },
+    {
+      "id": "en-r4",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "Does an approved refund go to the original payment method, and is the bank posting time three to five business days?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#what-you-get-back"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#what-you-get-back",
+          "document_name": "returns-and-refunds.md",
+          "heading": "What you get back",
+          "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money.",
+          "distance": 0.23289501667022705
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.35561609268188477
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.5389720797538757
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#refund-window",
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "query_seconds": 0.5815
+    },
+    {
+      "id": "en-r5",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "What extra review applies to refunds above $100, and how much extra time can it add?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.2611370086669922
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.4589582085609436
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#what-you-get-back",
+          "document_name": "returns-and-refunds.md",
+          "heading": "What you get back",
+          "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money.",
+          "distance": 0.4675159454345703
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#refund-window",
+        "returns-and-refunds.md#what-you-get-back"
+      ],
+      "query_seconds": 0.5104
+    },
+    {
+      "id": "en-r6",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "My refund is $120. Does its value trigger an additional review before processing?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.3570879101753235
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#what-you-get-back",
+          "document_name": "returns-and-refunds.md",
+          "heading": "What you get back",
+          "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money.",
+          "distance": 0.49570584297180176
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.5675621032714844
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#what-you-get-back",
+        "returns-and-refunds.md#refund-window"
+      ],
+      "query_seconds": 0.5759
+    },
+    {
+      "id": "en-r7",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "Do items need to be unused and in their original packaging for a return?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.28400248289108276
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.6392876505851746
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.6595481038093567
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#refused-or-undeliverable-packages",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.5715
+    },
+    {
+      "id": "en-r8",
+      "group": "english_answerable",
+      "topic": "refund",
+      "question": "What condition should returned items be in, and should I mention damage present on arrival in my request?",
+      "reference_context_ids": [
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.322323203086853
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.6452211737632751
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.6484976410865784
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-not-covered",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.5409
+    },
+    {
+      "id": "en-s1",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "How many business days do you take to process an order before shipping?",
+      "reference_context_ids": [
+        "shipping.md#processing-time"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.2719593048095703
+        },
+        {
+          "chunk_id": "shipping.md#delivery-estimates",
+          "document_name": "shipping.md",
+          "heading": "Delivery estimates",
+          "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only.",
+          "distance": 0.37848156690597534
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.5562552213668823
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#delivery-estimates",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.5207
+    },
+    {
+      "id": "en-s2",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "Is order handling before dispatch expected to take one or two working days?",
+      "reference_context_ids": [
+        "shipping.md#processing-time"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.4190516471862793
+        },
+        {
+          "chunk_id": "shipping.md#delivery-estimates",
+          "document_name": "shipping.md",
+          "heading": "Delivery estimates",
+          "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only.",
+          "distance": 0.5485996007919312
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.5921574831008911
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#delivery-estimates",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.5801
+    },
+    {
+      "id": "en-s3",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "Do you ship outside the United States, and what is the delivery estimate after processing?",
+      "reference_context_ids": [
+        "shipping.md#delivery-estimates"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#delivery-estimates",
+          "document_name": "shipping.md",
+          "heading": "Delivery estimates",
+          "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only.",
+          "distance": 0.24109584093093872
+        },
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.460115909576416
+        },
+        {
+          "chunk_id": "shipping.md#tracking",
+          "document_name": "shipping.md",
+          "heading": "Tracking",
+          "document_text": "# Shipping\n\n## Tracking\n\nEvery shipment includes a tracking number, sent by email when the order\nleaves our warehouse. If your tracking has not updated for more than 5\nbusiness days, contact support with your order number.",
+          "distance": 0.5782195925712585
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#processing-time",
+        "shipping.md#tracking"
+      ],
+      "query_seconds": 0.5783
+    },
+    {
+      "id": "en-s4",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "For a US customer, how long should delivery take after the order has been processed?",
+      "reference_context_ids": [
+        "shipping.md#delivery-estimates"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.2881576418876648
+        },
+        {
+          "chunk_id": "shipping.md#delivery-estimates",
+          "document_name": "shipping.md",
+          "heading": "Delivery estimates",
+          "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only.",
+          "distance": 0.31789976358413696
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.4822808504104614
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 0.5,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#processing-time",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.5275
+    },
+    {
+      "id": "en-s5",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "If the tracking number has not updated for six business days, who should I contact and what should I provide?",
+      "reference_context_ids": [
+        "shipping.md#tracking"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#tracking",
+          "document_name": "shipping.md",
+          "heading": "Tracking",
+          "document_text": "# Shipping\n\n## Tracking\n\nEvery shipment includes a tracking number, sent by email when the order\nleaves our warehouse. If your tracking has not updated for more than 5\nbusiness days, contact support with your order number.",
+          "distance": 0.29154133796691895
+        },
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.534579873085022
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.5452483892440796
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#how-to-request-a-change",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.6346
+    },
+    {
+      "id": "en-s6",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "After how many business days without a tracking update should I contact support with my order number?",
+      "reference_context_ids": [
+        "shipping.md#tracking"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#tracking",
+          "document_name": "shipping.md",
+          "heading": "Tracking",
+          "document_text": "# Shipping\n\n## Tracking\n\nEvery shipment includes a tracking number, sent by email when the order\nleaves our warehouse. If your tracking has not updated for more than 5\nbusiness days, contact support with your order number.",
+          "distance": 0.24306964874267578
+        },
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.40084517002105713
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.4295341968536377
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#processing-time",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.5034
+    },
+    {
+      "id": "en-s7",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "My parcel is marked delivered but is missing. Will support investigate with the carrier?",
+      "reference_context_ids": [
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.34558606147766113
+        },
+        {
+          "chunk_id": "shipping.md#tracking",
+          "document_name": "shipping.md",
+          "heading": "Tracking",
+          "document_text": "# Shipping\n\n## Tracking\n\nEvery shipment includes a tracking number, sent by email when the order\nleaves our warehouse. If your tracking has not updated for more than 5\nbusiness days, contact support with your order number.",
+          "distance": 0.45365971326828003
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.5678411722183228
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#tracking",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "query_seconds": 0.6291
+    },
+    {
+      "id": "en-s8",
+      "group": "english_answerable",
+      "topic": "shipping",
+      "question": "If a package is over ten business days late, can support investigate and arrange a replacement or refund where appropriate?",
+      "reference_context_ids": [
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.30790841579437256
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.42760372161865234
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.45398789644241333
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#condition-of-items",
+        "returns-and-refunds.md#refund-window"
+      ],
+      "query_seconds": 0.5698
+    },
+    {
+      "id": "en-w1",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "How long is the warranty on an espresso machine, and is it counted from the delivery date?",
+      "reference_context_ids": [
+        "warranty.md#coverage"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#coverage",
+          "document_name": "warranty.md",
+          "heading": "Coverage",
+          "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+          "distance": 0.3078988790512085
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.6896612644195557
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.6910594701766968
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#refund-window",
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "query_seconds": 0.5618
+    },
+    {
+      "id": "en-w2",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "Do kitchen appliances get the same twelve-month warranty as other products?",
+      "reference_context_ids": [
+        "warranty.md#coverage"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#coverage",
+          "document_name": "warranty.md",
+          "heading": "Coverage",
+          "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+          "distance": 0.2760409116744995
+        },
+        {
+          "chunk_id": "warranty.md#what-is-covered",
+          "document_name": "warranty.md",
+          "heading": "What is covered",
+          "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+          "distance": 0.6112024784088135
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.7069177627563477
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-covered",
+        "warranty.md#what-is-not-covered"
+      ],
+      "query_seconds": 0.5721
+    },
+    {
+      "id": "en-w3",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "Does the warranty cover defects in materials and workmanship?",
+      "reference_context_ids": [
+        "warranty.md#what-is-covered"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#what-is-covered",
+          "document_name": "warranty.md",
+          "heading": "What is covered",
+          "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+          "distance": 0.37612295150756836
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.48076575994491577
+        },
+        {
+          "chunk_id": "warranty.md#coverage",
+          "document_name": "warranty.md",
+          "heading": "Coverage",
+          "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+          "distance": 0.5158374309539795
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-not-covered",
+        "warranty.md#coverage"
+      ],
+      "query_seconds": 0.5618
+    },
+    {
+      "id": "en-w4",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "My appliance stopped working during normal home use. Is that type of problem covered by the warranty?",
+      "reference_context_ids": [
+        "warranty.md#what-is-covered"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#what-is-covered",
+          "document_name": "warranty.md",
+          "heading": "What is covered",
+          "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+          "distance": 0.4324161410331726
+        },
+        {
+          "chunk_id": "warranty.md#coverage",
+          "document_name": "warranty.md",
+          "heading": "Coverage",
+          "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+          "distance": 0.45978522300720215
+        },
+        {
+          "chunk_id": "warranty.md#how-to-claim",
+          "document_name": "warranty.md",
+          "heading": "How to claim",
+          "document_text": "# Warranty\n\n## How to claim\n\nContact support with your order number, a short description of the problem,\nand a photo if possible. Valid claims receive a replacement, or a refund if\nthe product is no longer available.",
+          "distance": 0.6265767812728882
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#coverage",
+        "warranty.md#how-to-claim"
+      ],
+      "query_seconds": 0.5541
+    },
+    {
+      "id": "en-w5",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "Are scratches, misuse damage, unauthorized repairs, or replacement filters covered under warranty?",
+      "reference_context_ids": [
+        "warranty.md#what-is-not-covered"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.31155288219451904
+        },
+        {
+          "chunk_id": "warranty.md#what-is-covered",
+          "document_name": "warranty.md",
+          "heading": "What is covered",
+          "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+          "distance": 0.5231030583381653
+        },
+        {
+          "chunk_id": "warranty.md#coverage",
+          "document_name": "warranty.md",
+          "heading": "Coverage",
+          "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+          "distance": 0.5695800185203552
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-covered",
+        "warranty.md#coverage"
+      ],
+      "query_seconds": 0.6745
+    },
+    {
+      "id": "en-w6",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "Does your warranty exclude wear and tear, accidents and consumable parts?",
+      "reference_context_ids": [
+        "warranty.md#what-is-not-covered"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.35648471117019653
+        },
+        {
+          "chunk_id": "warranty.md#what-is-covered",
+          "document_name": "warranty.md",
+          "heading": "What is covered",
+          "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+          "distance": 0.4979850649833679
+        },
+        {
+          "chunk_id": "warranty.md#coverage",
+          "document_name": "warranty.md",
+          "heading": "Coverage",
+          "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+          "distance": 0.5321966409683228
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-covered",
+        "warranty.md#coverage"
+      ],
+      "query_seconds": 0.7619
+    },
+    {
+      "id": "en-w7",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "What evidence should I send with a warranty claim, and what happens if the product is no longer available?",
+      "reference_context_ids": [
+        "warranty.md#how-to-claim"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#how-to-claim",
+          "document_name": "warranty.md",
+          "heading": "How to claim",
+          "document_text": "# Warranty\n\n## How to claim\n\nContact support with your order number, a short description of the problem,\nand a photo if possible. Valid claims receive a replacement, or a refund if\nthe product is no longer available.",
+          "distance": 0.3993353843688965
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.4883466958999634
+        },
+        {
+          "chunk_id": "warranty.md#what-is-covered",
+          "document_name": "warranty.md",
+          "heading": "What is covered",
+          "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+          "distance": 0.5575962662696838
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#condition-of-items",
+        "warranty.md#what-is-covered"
+      ],
+      "query_seconds": 0.6117
+    },
+    {
+      "id": "en-w8",
+      "group": "english_answerable",
+      "topic": "warranty",
+      "question": "When claiming warranty service, should I provide my order number, a problem description and a photo?",
+      "reference_context_ids": [
+        "warranty.md#how-to-claim"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "warranty.md#how-to-claim",
+          "document_name": "warranty.md",
+          "heading": "How to claim",
+          "document_text": "# Warranty\n\n## How to claim\n\nContact support with your order number, a short description of the problem,\nand a photo if possible. Valid claims receive a replacement, or a refund if\nthe product is no longer available.",
+          "distance": 0.4840790629386902
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.618303120136261
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.6448251605033875
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-not-covered",
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "query_seconds": 0.618
+    },
+    {
+      "id": "zh-a1",
+      "group": "chinese_stress",
+      "topic": "address",
+      "paired_english_id": "en-a1",
+      "question": "订单已经发货了，还能修改收货地址吗？",
+      "reference_context_ids": [
+        "address-changes.md#when-an-address-can-be-changed"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.8647702932357788
+        },
+        {
+          "chunk_id": "address-changes.md#how-to-request-a-change",
+          "document_name": "address-changes.md",
+          "heading": "How to request a change",
+          "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+          "distance": 0.8710815906524658
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.9266582727432251
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#how-to-request-a-change",
+        "warranty.md#what-is-not-covered"
+      ],
+      "query_seconds": 0.607
+    },
+    {
+      "id": "zh-a5",
+      "group": "chinese_stress",
+      "topic": "address",
+      "paired_english_id": "en-a5",
+      "question": "包裹无法投递，被退回仓库后，原运费也会退给我吗？",
+      "reference_context_ids": [
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.8782215118408203
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.8932058811187744
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.9137199521064758
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "any_hit": false,
+      "all_references_found": false,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "irrelevant_ids": [
+        "cancellations.md#how-to-cancel",
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "warranty.md#what-is-not-covered"
+      ],
+      "query_seconds": 0.6683
+    },
+    {
+      "id": "zh-c1",
+      "group": "chinese_stress",
+      "topic": "cancellation",
+      "paired_english_id": "en-c1",
+      "question": "订单有一部分已经发货了，还可以取消吗？",
+      "reference_context_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.8772928714752197
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.8911850452423096
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.9018125534057617
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "warranty.md#what-is-not-covered",
+        "cancellations.md#how-to-cancel"
+      ],
+      "query_seconds": 0.6392
+    },
+    {
+      "id": "zh-c3",
+      "group": "chinese_stress",
+      "topic": "cancellation",
+      "paired_english_id": "en-c3",
+      "question": "取消订单后，预留库存怎么处理，款项会退回哪种支付方式？",
+      "reference_context_ids": [
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.8994323015213013
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.9071292281150818
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.9243226647377014
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "any_hit": false,
+      "all_references_found": false,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "cancellations.md#how-to-cancel",
+        "warranty.md#what-is-not-covered"
+      ],
+      "query_seconds": 0.6423
+    },
+    {
+      "id": "zh-r1",
+      "group": "chinese_stress",
+      "topic": "refund",
+      "paired_english_id": "en-r1",
+      "question": "从下单日期算起，刚好第30天申请退款，还符合条件吗？",
+      "reference_context_ids": [
+        "returns-and-refunds.md#refund-window"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.8206132650375366
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.8518408536911011
+        },
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.868388295173645
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#lost-or-delayed-packages",
+        "cancellations.md#when-an-order-can-be-cancelled"
+      ],
+      "query_seconds": 0.6455
+    },
+    {
+      "id": "zh-r5",
+      "group": "chinese_stress",
+      "topic": "refund",
+      "paired_english_id": "en-r5",
+      "question": "退款金额超过100美元，需要什么额外审核，最多会多花多久？",
+      "reference_context_ids": [
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.8346313834190369
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.8967828750610352
+        },
+        {
+          "chunk_id": "warranty.md#how-to-claim",
+          "document_name": "warranty.md",
+          "heading": "How to claim",
+          "document_text": "# Warranty\n\n## How to claim\n\nContact support with your order number, a short description of the problem,\nand a photo if possible. Valid claims receive a replacement, or a refund if\nthe product is no longer available.",
+          "distance": 0.8974231481552124
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#how-to-cancel",
+        "warranty.md#how-to-claim"
+      ],
+      "query_seconds": 0.5988
+    },
+    {
+      "id": "zh-s1",
+      "group": "chinese_stress",
+      "topic": "shipping",
+      "paired_english_id": "en-s1",
+      "question": "订单发货前的处理，需要几个工作日？",
+      "reference_context_ids": [
+        "shipping.md#processing-time"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.8695264458656311
+        },
+        {
+          "chunk_id": "shipping.md#delivery-estimates",
+          "document_name": "shipping.md",
+          "heading": "Delivery estimates",
+          "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only.",
+          "distance": 0.8910045623779297
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.9009858965873718
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 1.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#delivery-estimates",
+        "shipping.md#lost-or-delayed-packages"
+      ],
+      "query_seconds": 0.592
+    },
+    {
+      "id": "zh-s5",
+      "group": "chinese_stress",
+      "topic": "shipping",
+      "paired_english_id": "en-s5",
+      "question": "物流轨迹六个工作日没有更新，我该联系谁，提供什么信息？",
+      "reference_context_ids": [
+        "shipping.md#tracking"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.8955779075622559
+        },
+        {
+          "chunk_id": "shipping.md#lost-or-delayed-packages",
+          "document_name": "shipping.md",
+          "heading": "Lost or delayed packages",
+          "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate.",
+          "distance": 0.9012332558631897
+        },
+        {
+          "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+          "document_name": "address-changes.md",
+          "heading": "When an address can be changed",
+          "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+          "distance": 0.9083124399185181
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "any_hit": false,
+      "all_references_found": false,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [
+        "shipping.md#tracking"
+      ],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "shipping.md#lost-or-delayed-packages",
+        "address-changes.md#when-an-address-can-be-changed"
+      ],
+      "query_seconds": 0.5294
+    },
+    {
+      "id": "zh-w1",
+      "group": "chinese_stress",
+      "topic": "warranty",
+      "paired_english_id": "en-w1",
+      "question": "咖啡机保修多久，是从送达日期开始算吗？",
+      "reference_context_ids": [
+        "warranty.md#coverage"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.8616772890090942
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.8821472525596619
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.9025952219963074
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.0,
+      "recall": 0.0,
+      "any_hit": false,
+      "all_references_found": false,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [
+        "warranty.md#coverage"
+      ],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "returns-and-refunds.md#refund-window",
+        "returns-and-refunds.md#condition-of-items"
+      ],
+      "query_seconds": 0.5275
+    },
+    {
+      "id": "zh-w5",
+      "group": "chinese_stress",
+      "topic": "warranty",
+      "paired_english_id": "en-w5",
+      "question": "划痕、误用损坏、未经授权的维修和替换滤芯，在保修范围内吗？",
+      "reference_context_ids": [
+        "warranty.md#what-is-not-covered"
+      ],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+          "document_name": "cancellations.md",
+          "heading": "When an order can be cancelled",
+          "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+          "distance": 0.8587985038757324
+        },
+        {
+          "chunk_id": "warranty.md#what-is-not-covered",
+          "document_name": "warranty.md",
+          "heading": "What is not covered",
+          "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+          "distance": 0.8607136607170105
+        },
+        {
+          "chunk_id": "cancellations.md#how-to-cancel",
+          "document_name": "cancellations.md",
+          "heading": "How to cancel",
+          "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+          "distance": 0.9104204773902893
+        }
+      ],
+      "relevant_retrieved": 1,
+      "retrieved_count": 3,
+      "reference_count": 1,
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "any_hit": true,
+      "all_references_found": true,
+      "reciprocal_rank": 0.5,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "cancellations.md#when-an-order-can-be-cancelled",
+        "cancellations.md#how-to-cancel"
+      ],
+      "query_seconds": 0.6784
+    },
+    {
+      "id": "ood-1",
+      "group": "unanswerable",
+      "topic": "no_policy",
+      "question": "Can I pay for my purchase in six monthly installments?",
+      "reference_context_ids": [],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.6956331133842468
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.7138477563858032
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.716992974281311
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 0,
+      "precision": 0.0,
+      "recall": null,
+      "any_hit": null,
+      "all_references_found": null,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#high-value-orders",
+        "cancellations.md#what-happens-on-cancellation",
+        "returns-and-refunds.md#refund-window"
+      ],
+      "query_seconds": 0.6719
+    },
+    {
+      "id": "ood-2",
+      "group": "unanswerable",
+      "topic": "no_policy",
+      "question": "How much do you charge for gift wrapping?",
+      "reference_context_ids": [],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.7325598001480103
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.7951645255088806
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.8788073062896729
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 0,
+      "precision": 0.0,
+      "recall": null,
+      "any_hit": null,
+      "all_references_found": null,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#high-value-orders",
+        "returns-and-refunds.md#condition-of-items",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "query_seconds": 0.6178
+    },
+    {
+      "id": "ood-3",
+      "group": "unanswerable",
+      "topic": "no_policy",
+      "question": "What wholesale discount is offered when I buy fifty units?",
+      "reference_context_ids": [],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.6247825026512146
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#condition-of-items",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Condition of items",
+          "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window.",
+          "distance": 0.7837052345275879
+        },
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.7900405526161194
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 0,
+      "precision": 0.0,
+      "recall": null,
+      "any_hit": null,
+      "all_references_found": null,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#high-value-orders",
+        "returns-and-refunds.md#condition-of-items",
+        "address-changes.md#refused-or-undeliverable-packages"
+      ],
+      "query_seconds": 0.6325
+    },
+    {
+      "id": "ood-4",
+      "group": "unanswerable",
+      "topic": "no_policy",
+      "question": "How do I redeem loyalty points for a membership discount?",
+      "reference_context_ids": [],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.7367335557937622
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.8092613220214844
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#refund-window",
+          "document_name": "returns-and-refunds.md",
+          "heading": "Refund window",
+          "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+          "distance": 0.8255497217178345
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 0,
+      "precision": 0.0,
+      "recall": null,
+      "any_hit": null,
+      "all_references_found": null,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "returns-and-refunds.md#high-value-orders",
+        "cancellations.md#what-happens-on-cancellation",
+        "returns-and-refunds.md#refund-window"
+      ],
+      "query_seconds": 0.6127
+    },
+    {
+      "id": "ood-5",
+      "group": "unanswerable",
+      "topic": "no_policy",
+      "question": "Do you offer same-day pickup at a physical shop, and where is it located?",
+      "reference_context_ids": [],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "shipping.md#delivery-estimates",
+          "document_name": "shipping.md",
+          "heading": "Delivery estimates",
+          "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only.",
+          "distance": 0.777119517326355
+        },
+        {
+          "chunk_id": "shipping.md#processing-time",
+          "document_name": "shipping.md",
+          "heading": "Processing time",
+          "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships.",
+          "distance": 0.7801674008369446
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.7827123403549194
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 0,
+      "precision": 0.0,
+      "recall": null,
+      "any_hit": null,
+      "all_references_found": null,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "shipping.md#delivery-estimates",
+        "shipping.md#processing-time",
+        "returns-and-refunds.md#high-value-orders"
+      ],
+      "query_seconds": 0.5997
+    },
+    {
+      "id": "ood-6",
+      "group": "unanswerable",
+      "topic": "no_policy",
+      "question": "Which credit cards and digital wallets are accepted at checkout?",
+      "reference_context_ids": [],
+      "retrieved_contexts": [
+        {
+          "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+          "document_name": "address-changes.md",
+          "heading": "Refused or undeliverable packages",
+          "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse.",
+          "distance": 0.7846065759658813
+        },
+        {
+          "chunk_id": "returns-and-refunds.md#high-value-orders",
+          "document_name": "returns-and-refunds.md",
+          "heading": "High-value orders",
+          "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+          "distance": 0.7866711616516113
+        },
+        {
+          "chunk_id": "cancellations.md#what-happens-on-cancellation",
+          "document_name": "cancellations.md",
+          "heading": "What happens on cancellation",
+          "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+          "distance": 0.8114558458328247
+        }
+      ],
+      "relevant_retrieved": 0,
+      "retrieved_count": 3,
+      "reference_count": 0,
+      "precision": 0.0,
+      "recall": null,
+      "any_hit": null,
+      "all_references_found": null,
+      "reciprocal_rank": 0.0,
+      "missing_ids": [],
+      "irrelevant_ids": [
+        "address-changes.md#refused-or-undeliverable-packages",
+        "returns-and-refunds.md#high-value-orders",
+        "cancellations.md#what-happens-on-cancellation"
+      ],
+      "query_seconds": 0.5992
+    }
+  ],
+  "indexed_chunks": 18,
+  "index_build_seconds": 4.869,
+  "embedding_onnx_sha256": "4f148ba8ae9c2c7fbee4af2b132db8d06c6a6545b47fc83bbb98c3d22b8393e6",
+  "summary": {
+    "english_answerable": {
+      "cases": 40,
+      "query_failures": 0,
+      "relevant_retrieved": 44,
+      "retrieved_count": 120,
+      "reference_count": 44,
+      "macro_precision_at_3": 0.36666666666666664,
+      "macro_recall_at_3": 1.0,
+      "micro_precision_at_3": 0.36666666666666664,
+      "micro_recall_at_3": 1.0,
+      "hit_rate_at_3": 1,
+      "all_evidence_rate_at_3": 1,
+      "mrr_at_3": 0.9583333333333334,
+      "queries_returning_context": 40
+    },
+    "chinese_stress": {
+      "cases": 10,
+      "query_failures": 0,
+      "relevant_retrieved": 6,
+      "retrieved_count": 30,
+      "reference_count": 10,
+      "macro_precision_at_3": 0.19999999999999998,
+      "macro_recall_at_3": 0.6,
+      "micro_precision_at_3": 0.2,
+      "micro_recall_at_3": 0.6,
+      "hit_rate_at_3": 0.6,
+      "all_evidence_rate_at_3": 0.6,
+      "mrr_at_3": 0.55,
+      "queries_returning_context": 10
+    },
+    "unanswerable": {
+      "cases": 6,
+      "query_failures": 0,
+      "relevant_retrieved": 0,
+      "retrieved_count": 18,
+      "reference_count": 0,
+      "macro_precision_at_3": 0.0,
+      "macro_recall_at_3": null,
+      "micro_precision_at_3": 0.0,
+      "micro_recall_at_3": null,
+      "hit_rate_at_3": null,
+      "all_evidence_rate_at_3": null,
+      "mrr_at_3": null,
+      "queries_returning_context": 6
+    }
+  },
+  "finished_at_utc": "2026-10-30T06:49:39.886195+00:00"
+}

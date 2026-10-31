@@ -1,0 +1,2658 @@
+{
+  "status": "complete",
+  "model": "deepseek-flash",
+  "dataset": {
+    "name": "storekeeper-frozen-test-v1",
+    "created_date": "2026-10-30",
+    "scope": "40 newly authored synthetic cases; separate from the old 24-case development set. Fixed before this run, not an external blind benchmark.",
+    "cases": [
+      {
+        "id": "cancel_order-1",
+        "text": "我不需要这笔订单了，请取消 #2048。",
+        "expected_intent": "cancel_order",
+        "expected_reference": "#2048"
+      },
+      {
+        "id": "cancel_order-2",
+        "text": "Could you stop order #2049 before it ships? Please cancel it.",
+        "expected_intent": "cancel_order",
+        "expected_reference": "#2049"
+      },
+      {
+        "id": "cancel_order-3",
+        "text": "下单买错了，请撤销 #2050。",
+        "expected_intent": "cancel_order",
+        "expected_reference": "#2050"
+      },
+      {
+        "id": "cancel_order-4",
+        "text": "I want to cancel my purchase; I cannot find its number.",
+        "expected_intent": "cancel_order",
+        "expected_reference": null
+      },
+      {
+        "id": "cancel_order-5",
+        "text": "麻烦把订单 #0007 作废，这次不需要修改收货地址。",
+        "expected_intent": "cancel_order",
+        "expected_reference": "#0007"
+      },
+      {
+        "id": "cancel_order-6",
+        "text": "Please cancel #2051; this is not an address-change request.",
+        "expected_intent": "cancel_order",
+        "expected_reference": "#2051"
+      },
+      {
+        "id": "cancel_order-7",
+        "text": "我想取消订单，稍后再给你单号。",
+        "expected_intent": "cancel_order",
+        "expected_reference": null
+      },
+      {
+        "id": "cancel_order-8",
+        "text": "Order #2052 is no longer needed. Cancel it please.",
+        "expected_intent": "cancel_order",
+        "expected_reference": "#2052"
+      },
+      {
+        "id": "refund_request-1",
+        "text": "订单 #3051 我要求退回付款。",
+        "expected_intent": "refund_request",
+        "expected_reference": "#3051"
+      },
+      {
+        "id": "refund_request-2",
+        "text": "I'd like a refund for #3052, not a cancellation.",
+        "expected_intent": "refund_request",
+        "expected_reference": "#3052"
+      },
+      {
+        "id": "refund_request-3",
+        "text": "收到 #3053 后发现不合适，我要退货退款。",
+        "expected_intent": "refund_request",
+        "expected_reference": "#3053"
+      },
+      {
+        "id": "refund_request-4",
+        "text": "Please return my payment; I do not have the order number now.",
+        "expected_intent": "refund_request",
+        "expected_reference": null
+      },
+      {
+        "id": "refund_request-5",
+        "text": "我要求退还 #3054 的全部货款。",
+        "expected_intent": "refund_request",
+        "expected_reference": "#3054"
+      },
+      {
+        "id": "refund_request-6",
+        "text": "Please process a return and refund for #3055.",
+        "expected_intent": "refund_request",
+        "expected_reference": "#3055"
+      },
+      {
+        "id": "refund_request-7",
+        "text": "我要申请退款，单号待会补。",
+        "expected_intent": "refund_request",
+        "expected_reference": null
+      },
+      {
+        "id": "refund_request-8",
+        "text": "The item from #3056 arrived damaged. I request my money back.",
+        "expected_intent": "refund_request",
+        "expected_reference": "#3056"
+      },
+      {
+        "id": "address_change-1",
+        "text": "Change the delivery address on #4051. I'll provide the new address later.",
+        "expected_intent": "address_change",
+        "expected_reference": "#4051",
+        "expected_address": {}
+      },
+      {
+        "id": "address_change-2",
+        "text": "订单 #4052 的新城市是 Shanghai，其他地址信息之后补。",
+        "expected_intent": "address_change",
+        "expected_reference": "#4052",
+        "expected_address": {
+          "city": "Shanghai"
+        }
+      },
+      {
+        "id": "address_change-3",
+        "text": "For #4053, set the new street address to 12 Example Street. I have not provided any other address fields.",
+        "expected_intent": "address_change",
+        "expected_reference": "#4053",
+        "expected_address": {
+          "address1": "12 Example Street"
+        }
+      },
+      {
+        "id": "address_change-4",
+        "text": "Change the ZIP code on #4054 to 250000. All other new address fields are unspecified.",
+        "expected_intent": "address_change",
+        "expected_reference": "#4054",
+        "expected_address": {
+          "zip": "250000"
+        }
+      },
+      {
+        "id": "address_change-5",
+        "text": "请修改我的收货地址，我还没提供订单编号或新地址。",
+        "expected_intent": "address_change",
+        "expected_reference": null,
+        "expected_address": {}
+      },
+      {
+        "id": "address_change-6",
+        "text": "Set the country for order #4055 to Canada. I have not provided a city, province, street, or postal code.",
+        "expected_intent": "address_change",
+        "expected_reference": "#4055",
+        "expected_address": {
+          "country": "Canada"
+        }
+      },
+      {
+        "id": "address_change-7",
+        "text": "For #4056, change the shipping address to 21 Test Road, city Toronto, province Ontario, postal code M5V 1A1, country Canada.",
+        "expected_intent": "address_change",
+        "expected_reference": "#4056",
+        "expected_address": {
+          "address1": "21 Test Road",
+          "city": "Toronto",
+          "province": "Ontario",
+          "zip": "M5V 1A1",
+          "country": "Canada"
+        }
+      },
+      {
+        "id": "address_change-8",
+        "text": "Please change the shipping address for #4057 to 6 Sample Lane. Do not change or refund the order.",
+        "expected_intent": "address_change",
+        "expected_reference": "#4057",
+        "expected_address": {
+          "address1": "6 Sample Lane"
+        }
+      },
+      {
+        "id": "policy_question-1",
+        "text": "超过退货期限还可以退货吗？",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-2",
+        "text": "How long does a warranty normally last under your store policy?",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-3",
+        "text": "你们的发货规定是什么？",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-4",
+        "text": "What conditions must an order meet to be eligible for cancellation?",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-5",
+        "text": "退款政策一般要求提供哪些材料？",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-6",
+        "text": "Which payment method do you refund to under your policy?",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-7",
+        "text": "我先问一下修改地址的规则，现在不修改任何订单。",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "policy_question-8",
+        "text": "Can you explain the general returns policy? Do not start a return.",
+        "expected_intent": "policy_question",
+        "expected_reference": null
+      },
+      {
+        "id": "other-1",
+        "text": "请帮我写一首关于月亮的诗。",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-2",
+        "text": "What is 8 multiplied by 7?",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-3",
+        "text": "非常感谢，你的帮助很有用。",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-4",
+        "text": "I just want to say hello to the support team.",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-5",
+        "text": "我有点问题，具体需求还没有想好。",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-6",
+        "text": "Please help me with something; I have not explained what yet.",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-7",
+        "text": "请告诉我你使用了哪个语言模型。",
+        "expected_intent": "other",
+        "expected_reference": null
+      },
+      {
+        "id": "other-8",
+        "text": "Tell me a joke about computers.",
+        "expected_intent": "other",
+        "expected_reference": null
+      }
+    ]
+  },
+  "dataset_sha256": "02bd9e4473177018e8c4e15c811b663475e4ca7f2b2369766657c77af907d644",
+  "prompt_sha256": "1b95bef58f68c2a5d9a116e0a2a24bdbdbba6002643ee31807d759020dbcbceb",
+  "classification": [
+    {
+      "id": "cancel_order-1",
+      "text": "我不需要这笔订单了，请取消 #2048。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": "#2048",
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 3.375
+    },
+    {
+      "id": "cancel_order-2",
+      "text": "Could you stop order #2049 before it ships? Please cancel it.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": "#2049",
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.98
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.505
+    },
+    {
+      "id": "cancel_order-3",
+      "text": "下单买错了，请撤销 #2050。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": "#2050",
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 2.231
+    },
+    {
+      "id": "cancel_order-4",
+      "text": "I want to cancel my purchase; I cannot find its number.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": null,
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.395
+    },
+    {
+      "id": "cancel_order-5",
+      "text": "麻烦把订单 #0007 作废，这次不需要修改收货地址。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": "#0007",
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.466
+    },
+    {
+      "id": "cancel_order-6",
+      "text": "Please cancel #2051; this is not an address-change request.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": "#2051",
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.555
+    },
+    {
+      "id": "cancel_order-7",
+      "text": "我想取消订单，稍后再给你单号。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": null,
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.572
+    },
+    {
+      "id": "cancel_order-8",
+      "text": "Order #2052 is no longer needed. Cancel it please.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "cancel_order",
+          "order_reference": "#2052",
+          "requested_action": "cancel_order",
+          "new_shipping_address": null,
+          "confidence": 0.98
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.313
+    },
+    {
+      "id": "refund_request-1",
+      "text": "订单 #3051 我要求退回付款。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": "#3051",
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.446
+    },
+    {
+      "id": "refund_request-2",
+      "text": "I'd like a refund for #3052, not a cancellation.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": "#3052",
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.328
+    },
+    {
+      "id": "refund_request-3",
+      "text": "收到 #3053 后发现不合适，我要退货退款。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": "#3053",
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.346
+    },
+    {
+      "id": "refund_request-4",
+      "text": "Please return my payment; I do not have the order number now.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": null,
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.85
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.542
+    },
+    {
+      "id": "refund_request-5",
+      "text": "我要求退还 #3054 的全部货款。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": "#3054",
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.775
+    },
+    {
+      "id": "refund_request-6",
+      "text": "Please process a return and refund for #3055.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": "#3055",
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.576
+    },
+    {
+      "id": "refund_request-7",
+      "text": "我要申请退款，单号待会补。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": null,
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.419
+    },
+    {
+      "id": "refund_request-8",
+      "text": "The item from #3056 arrived damaged. I request my money back.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "refund_request",
+          "order_reference": "#3056",
+          "requested_action": "issue_refund",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.64
+    },
+    {
+      "id": "address_change-1",
+      "text": "Change the delivery address on #4051. I'll provide the new address later.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4051",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.628
+    },
+    {
+      "id": "address_change-2",
+      "text": "订单 #4052 的新城市是 Shanghai，其他地址信息之后补。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4052",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": {
+            "first_name": null,
+            "last_name": null,
+            "company": null,
+            "address1": null,
+            "address2": null,
+            "city": "Shanghai",
+            "province": null,
+            "zip": null,
+            "country": null,
+            "phone": null
+          },
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.432
+    },
+    {
+      "id": "address_change-3",
+      "text": "For #4053, set the new street address to 12 Example Street. I have not provided any other address fields.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4053",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": {
+            "first_name": null,
+            "last_name": null,
+            "company": null,
+            "address1": "12 Example Street",
+            "address2": null,
+            "city": null,
+            "province": null,
+            "zip": null,
+            "country": null,
+            "phone": null
+          },
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.466
+    },
+    {
+      "id": "address_change-4",
+      "text": "Change the ZIP code on #4054 to 250000. All other new address fields are unspecified.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4054",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": {
+            "first_name": null,
+            "last_name": null,
+            "company": null,
+            "address1": null,
+            "address2": null,
+            "city": null,
+            "province": null,
+            "zip": "250000",
+            "country": null,
+            "phone": null
+          },
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.516
+    },
+    {
+      "id": "address_change-5",
+      "text": "请修改我的收货地址，我还没提供订单编号或新地址。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": null,
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": null,
+          "confidence": 0.6
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.703
+    },
+    {
+      "id": "address_change-6",
+      "text": "Set the country for order #4055 to Canada. I have not provided a city, province, street, or postal code.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4055",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": {
+            "first_name": null,
+            "last_name": null,
+            "company": null,
+            "address1": null,
+            "address2": null,
+            "city": null,
+            "province": null,
+            "zip": null,
+            "country": "Canada",
+            "phone": null
+          },
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.587
+    },
+    {
+      "id": "address_change-7",
+      "text": "For #4056, change the shipping address to 21 Test Road, city Toronto, province Ontario, postal code M5V 1A1, country Canada.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4056",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": {
+            "first_name": null,
+            "last_name": null,
+            "company": null,
+            "address1": "21 Test Road",
+            "address2": null,
+            "city": "Toronto",
+            "province": "Ontario",
+            "zip": "M5V 1A1",
+            "country": "Canada",
+            "phone": null
+          },
+          "confidence": 0.98
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.381
+    },
+    {
+      "id": "address_change-8",
+      "text": "Please change the shipping address for #4057 to 6 Sample Lane. Do not change or refund the order.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "address_change",
+          "order_reference": "#4057",
+          "requested_action": "update_shipping_address",
+          "new_shipping_address": {
+            "first_name": null,
+            "last_name": null,
+            "company": null,
+            "address1": "6 Sample Lane",
+            "address2": null,
+            "city": null,
+            "province": null,
+            "zip": null,
+            "country": null,
+            "phone": null
+          },
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": true,
+      "passed": true,
+      "duration_seconds": 1.687
+    },
+    {
+      "id": "policy_question-1",
+      "text": "超过退货期限还可以退货吗？",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 2.097
+    },
+    {
+      "id": "policy_question-2",
+      "text": "How long does a warranty normally last under your store policy?",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 2.447
+    },
+    {
+      "id": "policy_question-3",
+      "text": "你们的发货规定是什么？",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.336
+    },
+    {
+      "id": "policy_question-4",
+      "text": "What conditions must an order meet to be eligible for cancellation?",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.517
+    },
+    {
+      "id": "policy_question-5",
+      "text": "退款政策一般要求提供哪些材料？",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.537
+    },
+    {
+      "id": "policy_question-6",
+      "text": "Which payment method do you refund to under your policy?",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.366
+    },
+    {
+      "id": "policy_question-7",
+      "text": "我先问一下修改地址的规则，现在不修改任何订单。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.287
+    },
+    {
+      "id": "policy_question-8",
+      "text": "Can you explain the general returns policy? Do not start a return.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "policy_question",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.97
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.859
+    },
+    {
+      "id": "other-1",
+      "text": "请帮我写一首关于月亮的诗。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.603
+    },
+    {
+      "id": "other-2",
+      "text": "What is 8 multiplied by 7?",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.552
+    },
+    {
+      "id": "other-3",
+      "text": "非常感谢，你的帮助很有用。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.507
+    },
+    {
+      "id": "other-4",
+      "text": "I just want to say hello to the support team.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 2.051
+    },
+    {
+      "id": "other-5",
+      "text": "我有点问题，具体需求还没有想好。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.4
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.337
+    },
+    {
+      "id": "other-6",
+      "text": "Please help me with something; I have not explained what yet.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.478
+    },
+    {
+      "id": "other-7",
+      "text": "请告诉我你使用了哪个语言模型。",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.9
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.584
+    },
+    {
+      "id": "other-8",
+      "text": "Tell me a joke about computers.",
+      "tasks": [
+        {
+          "task_id": "task-1",
+          "intent": "other",
+          "order_reference": null,
+          "requested_action": null,
+          "new_shipping_address": null,
+          "confidence": 0.95
+        }
+      ],
+      "intent_passed": true,
+      "reference_passed": true,
+      "address_passed": null,
+      "passed": true,
+      "duration_seconds": 1.599
+    }
+  ],
+  "workflows": [
+    {
+      "case_id": "clarify_approve",
+      "passed": true,
+      "observations": {
+        "no_write_before_approval": true,
+        "clarification_requested": true,
+        "task_identity_preserved": true,
+        "approval_requested": true,
+        "expected_outcome": true,
+        "expected_simulated_writes": true
+      },
+      "ticket": {
+        "ticket_id": "clarify_approve",
+        "ticket_text": "这单我不想要了，帮我取消。",
+        "created_at": "2026-10-30T05:03:36.895429Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#1036"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#1036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#1036",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.9
+            },
+            "outcome": "submitted",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": {
+              "action": "cancel_order",
+              "shopify_job_id": "demo-job-1",
+              "operation_status": "submitted",
+              "simulated": true,
+              "job_reported_done": true,
+              "refund_status": "unverified",
+              "summary": "Shopify accepted the cancellation request. Cancellation completion and payment settlement have not been verified."
+            },
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "TEST ORDERS (OFFLINE DEMO): No real order or payment was changed.\n\nOrder #1036: cancellation request submitted. Cancellation completion and refund settlement have not been verified; please await confirmation.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null
+      },
+      "duration_seconds": 1.498
+    },
+    {
+      "case_id": "clarify_reject",
+      "passed": true,
+      "observations": {
+        "no_write_before_approval": true,
+        "clarification_requested": true,
+        "task_identity_preserved": true,
+        "approval_requested": true,
+        "expected_outcome": true,
+        "expected_simulated_writes": true
+      },
+      "ticket": {
+        "ticket_id": "clarify_reject",
+        "ticket_text": "Please cancel my order.",
+        "created_at": "2026-10-30T05:03:38.413102Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#1036"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#1036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.95
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#1036",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.95
+            },
+            "outcome": "rejected_by_human",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": null,
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "Hi there,\n\nThanks for reaching out about cancelling order #1036. We've reviewed your request, and unfortunately we're unable to cancel this order. We're sorry for the inconvenience.\n\nIf you have any questions or need further help, just let us know.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null
+      },
+      "duration_seconds": 3.186
+    },
+    {
+      "case_id": "fulfilled_denial",
+      "passed": true,
+      "observations": {
+        "no_write_before_approval": true,
+        "expected_outcome": true,
+        "expected_simulated_writes": true
+      },
+      "ticket": {
+        "ticket_id": "fulfilled_denial",
+        "ticket_text": "取消 #1037。",
+        "created_at": "2026-10-30T05:03:41.655611Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#1037",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.97
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#1037",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.97
+            },
+            "outcome": "denied_by_policy",
+            "gate_verdict": {
+              "passed": false,
+              "rule": "cancel_order_fulfilled",
+              "reason": "The order is already fulfilled and cannot be cancelled.",
+              "flags": []
+            },
+            "action_result": null,
+            "policy_citations": [
+              "cancellations.md"
+            ]
+          }
+        ],
+        "reply_draft": "Hi there,\n\nThank you for reaching out about cancelling order #1037.\n\nUnfortunately, we're unable to cancel this order because it has already been fulfilled and has shipped. Per our cancellation policy, orders can only be cancelled while they are unfulfilled — before they ship.\n\nOnce your order arrives, you're welcome to use our return and refund process instead. If you'd like help with that, just let us know and we'll be glad to assist.\n\nWe're sorry for the inconvenience, and thank you for understanding.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null
+      },
+      "duration_seconds": 3.299
+    },
+    {
+      "case_id": "explicit_reject",
+      "passed": true,
+      "observations": {
+        "no_write_before_approval": true,
+        "approval_requested": true,
+        "expected_outcome": true,
+        "expected_simulated_writes": true
+      },
+      "ticket": {
+        "ticket_id": "explicit_reject",
+        "ticket_text": "Please cancel #1036.",
+        "created_at": "2026-10-30T05:03:45.019135Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#1036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.98
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#1036",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.98
+            },
+            "outcome": "rejected_by_human",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": null,
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "Hi there,\n\nThank you for reaching out about order #1036. We've reviewed your cancellation request, and unfortunately we're unable to cancel this order at this time.\n\nIf there's anything else we can help you with, please don't hesitate to let us know.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null
+      },
+      "duration_seconds": 3.47
+    }
+  ],
+  "calls": [
+    {
+      "usage": {
+        "input_tokens": 1294,
+        "output_tokens": 65,
+        "total_tokens": 1359,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1294,
+        "total_tokens": 1359,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 270
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1297,
+        "output_tokens": 65,
+        "total_tokens": 1362,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1297,
+        "total_tokens": 1362,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 273
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1292,
+        "output_tokens": 65,
+        "total_tokens": 1357,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1292,
+        "total_tokens": 1357,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 268
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1295,
+        "output_tokens": 63,
+        "total_tokens": 1358,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 63,
+        "prompt_tokens": 1295,
+        "total_tokens": 1358,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 271
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1298,
+        "output_tokens": 65,
+        "total_tokens": 1363,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1298,
+        "total_tokens": 1363,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 274
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1296,
+        "output_tokens": 65,
+        "total_tokens": 1361,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1296,
+        "total_tokens": 1361,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 272
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1292,
+        "output_tokens": 63,
+        "total_tokens": 1355,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 63,
+        "prompt_tokens": 1292,
+        "total_tokens": 1355,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 268
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1295,
+        "output_tokens": 65,
+        "total_tokens": 1360,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1295,
+        "total_tokens": 1360,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 271
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1292,
+        "output_tokens": 66,
+        "total_tokens": 1358,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 1292,
+        "total_tokens": 1358,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 268
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1296,
+        "output_tokens": 66,
+        "total_tokens": 1362,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 1296,
+        "total_tokens": 1362,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 272
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1294,
+        "output_tokens": 66,
+        "total_tokens": 1360,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 1294,
+        "total_tokens": 1360,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 270
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1296,
+        "output_tokens": 64,
+        "total_tokens": 1360,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1296,
+        "total_tokens": 1360,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 272
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1292,
+        "output_tokens": 66,
+        "total_tokens": 1358,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 1292,
+        "total_tokens": 1358,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 268
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1293,
+        "output_tokens": 66,
+        "total_tokens": 1359,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 1293,
+        "total_tokens": 1359,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 269
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1292,
+        "output_tokens": 64,
+        "total_tokens": 1356,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1292,
+        "total_tokens": 1356,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 268
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1297,
+        "output_tokens": 66,
+        "total_tokens": 1363,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 66,
+        "prompt_tokens": 1297,
+        "total_tokens": 1363,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 273
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1299,
+        "output_tokens": 65,
+        "total_tokens": 1364,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1299,
+        "total_tokens": 1364,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 275
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1298,
+        "output_tokens": 120,
+        "total_tokens": 1418,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 120,
+        "prompt_tokens": 1298,
+        "total_tokens": 1418,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 274
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1307,
+        "output_tokens": 121,
+        "total_tokens": 1428,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 121,
+        "prompt_tokens": 1307,
+        "total_tokens": 1428,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 283
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1303,
+        "output_tokens": 120,
+        "total_tokens": 1423,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 120,
+        "prompt_tokens": 1303,
+        "total_tokens": 1423,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 279
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1297,
+        "output_tokens": 63,
+        "total_tokens": 1360,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 63,
+        "prompt_tokens": 1297,
+        "total_tokens": 1360,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 273
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1308,
+        "output_tokens": 119,
+        "total_tokens": 1427,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 119,
+        "prompt_tokens": 1308,
+        "total_tokens": 1427,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 284
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1316,
+        "output_tokens": 132,
+        "total_tokens": 1448,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 132,
+        "prompt_tokens": 1316,
+        "total_tokens": 1448,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 292
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1305,
+        "output_tokens": 121,
+        "total_tokens": 1426,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 121,
+        "prompt_tokens": 1305,
+        "total_tokens": 1426,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 281
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1289,
+        "output_tokens": 64,
+        "total_tokens": 1353,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1289,
+        "total_tokens": 1353,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 265
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1294,
+        "output_tokens": 64,
+        "total_tokens": 1358,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1294,
+        "total_tokens": 1358,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 270
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1287,
+        "output_tokens": 64,
+        "total_tokens": 1351,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1287,
+        "total_tokens": 1351,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 263
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1294,
+        "output_tokens": 64,
+        "total_tokens": 1358,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1294,
+        "total_tokens": 1358,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 270
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1290,
+        "output_tokens": 64,
+        "total_tokens": 1354,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1290,
+        "total_tokens": 1354,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 266
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1293,
+        "output_tokens": 64,
+        "total_tokens": 1357,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1293,
+        "total_tokens": 1357,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 269
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1296,
+        "output_tokens": 64,
+        "total_tokens": 1360,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1296,
+        "total_tokens": 1360,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 272
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1296,
+        "output_tokens": 64,
+        "total_tokens": 1360,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 64,
+        "prompt_tokens": 1296,
+        "total_tokens": 1360,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 272
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1291,
+        "output_tokens": 62,
+        "total_tokens": 1353,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1291,
+        "total_tokens": 1353,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 267
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1291,
+        "output_tokens": 62,
+        "total_tokens": 1353,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1291,
+        "total_tokens": 1353,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 267
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1289,
+        "output_tokens": 62,
+        "total_tokens": 1351,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1289,
+        "total_tokens": 1351,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 265
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1293,
+        "output_tokens": 62,
+        "total_tokens": 1355,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1293,
+        "total_tokens": 1355,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 269
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1292,
+        "output_tokens": 62,
+        "total_tokens": 1354,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1292,
+        "total_tokens": 1354,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 268
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1295,
+        "output_tokens": 62,
+        "total_tokens": 1357,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1295,
+        "total_tokens": 1357,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 271
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1290,
+        "output_tokens": 62,
+        "total_tokens": 1352,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1290,
+        "total_tokens": 1352,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 266
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1289,
+        "output_tokens": 62,
+        "total_tokens": 1351,
+        "input_token_details": {
+          "cache_read": 1024
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 62,
+        "prompt_tokens": 1289,
+        "total_tokens": 1351,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1024,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1024,
+        "prompt_cache_miss_tokens": 265
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1291,
+        "output_tokens": 63,
+        "total_tokens": 1354,
+        "input_token_details": {
+          "cache_read": 1152
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 63,
+        "prompt_tokens": 1291,
+        "total_tokens": 1354,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1152,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 139
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1287,
+        "output_tokens": 63,
+        "total_tokens": 1350,
+        "input_token_details": {
+          "cache_read": 1152
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 63,
+        "prompt_tokens": 1287,
+        "total_tokens": 1350,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1152,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 135
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 460,
+        "output_tokens": 56,
+        "total_tokens": 516,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 56,
+        "prompt_tokens": 460,
+        "total_tokens": 516,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 0,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 460
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1287,
+        "output_tokens": 65,
+        "total_tokens": 1352,
+        "input_token_details": {
+          "cache_read": 1152
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1287,
+        "total_tokens": 1352,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1152,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 135
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 625,
+        "output_tokens": 109,
+        "total_tokens": 734,
+        "input_token_details": {
+          "cache_read": 128
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 109,
+        "prompt_tokens": 625,
+        "total_tokens": 734,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 128,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 497
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 1288,
+        "output_tokens": 65,
+        "total_tokens": 1353,
+        "input_token_details": {
+          "cache_read": 1152
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 65,
+        "prompt_tokens": 1288,
+        "total_tokens": 1353,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 1152,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 136
+      }
+    },
+    {
+      "usage": {
+        "input_tokens": 461,
+        "output_tokens": 57,
+        "total_tokens": 518,
+        "input_token_details": {
+          "cache_read": 128
+        },
+        "output_token_details": {}
+      },
+      "model": "deepseek-flash",
+      "token_usage": {
+        "completion_tokens": 57,
+        "prompt_tokens": 461,
+        "total_tokens": 518,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cache_write_tokens": null,
+          "cached_tokens": 128,
+          "image_tokens": null,
+          "text_tokens": null
+        },
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 333
+      }
+    }
+  ],
+  "summary": {
+    "samples_completed": 40,
+    "samples_planned": 40,
+    "strict_matches": 40,
+    "intent_matches": 40,
+    "reference_matches": 40,
+    "partial_address_cases": 8,
+    "partial_address_matches": 8,
+    "median_seconds": 1.5394999999999999,
+    "p95_seconds": 2.231,
+    "workflow_passes": 4,
+    "workflow_cases": 4,
+    "completed_model_calls": 47
+  },
+  "token_summary": {
+    "input_tokens": 58512,
+    "output_tokens": 3387,
+    "total_tokens": 61899
+  },
+  "cost_note": "Actual billing unavailable. Reported usage is not an invoice. No automatic paid retries.",
+  "scope": "One pre-frozen synthetic test set, not an external blind benchmark or production accuracy. Order APIs are simulated. Exact matching, not full language quality.",
+  "price_estimate": {
+    "off_peak_usd": 0.004072871999999999,
+    "peak_usd": 0.008145743999999998,
+    "billed_cost": null,
+    "pricing_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "checked": "2026-10-30",
+    "rates_per_million_usd": {
+      "input_cache_miss": 0.15,
+      "input_cache_hit": 0.003,
+      "output": 0.6
+    },
+    "scope": "47 completed calls in this run only; calculated from public rates, not verified account charges."
+  },
+  "address_metric_note": "The 8 address cases include complete and partial/missing addresses; partial_address_cases is a legacy field name, not 8 exclusively partial inputs."
+}
