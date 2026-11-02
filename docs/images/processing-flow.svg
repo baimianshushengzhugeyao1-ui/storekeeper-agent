@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1420" viewBox="0 0 1000 1420">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#547080"/></marker><style>
+.box{fill:#f3f8fb;stroke:#397c98;stroke-width:2}.decision{fill:#fff4df;stroke:#c68b2c;stroke-width:2}.start{fill:#e6f4ef;stroke:#38836f;stroke-width:2}.end{fill:#edf0fa;stroke:#6575ad;stroke-width:2}.txt{font-family:'Microsoft YaHei',Arial,sans-serif;font-size:23px;fill:#203746;text-anchor:middle;dominant-baseline:middle}.small{font-size:18px;fill:#526975}.edge{fill:none;stroke:#547080;stroke-width:2.4;marker-end:url(#arrow)}.label{font-family:'Microsoft YaHei',Arial,sans-serif;font-size:18px;fill:#435a67}
+</style></defs>
+<rect width="1000" height="1420" fill="#fff"/><text x="500" y="52" class="txt" style="font-size:32px;font-weight:bold">Storekeeper 客服 Agent 处理链路</text>
+<rect x="350" y="90" width="300" height="62" rx="18" class="start"/><text x="500" y="121" class="txt">客户诉求</text>
+<path d="M500 152v35" class="edge"/><rect x="330" y="188" width="340" height="68" rx="15" class="box"/><text x="500" y="222" class="txt">模型结构化解析</text>
+<path d="M500 256v35" class="edge"/><path d="M500 290l160 62-160 62-160-62z" class="decision"/><text x="500" y="344" class="txt">单个取消请求<br/>缺订单号？</text>
+<path d="M500 414v34" class="edge"/><text x="520" y="438" class="label">是</text><rect x="315" y="450" width="370" height="75" rx="15" class="box"/><text x="500" y="480" class="txt">澄清暂停 / SQLite 保存检查点</text><text x="500" y="507" class="txt small">保存取消意图与补号历史</text>
+<path d="M500 525v30" class="edge"/><rect x="315" y="557" width="370" height="68" rx="15" class="box"/><text x="500" y="591" class="txt">用户补号 / 校验归属与格式</text>
+<path d="M500 625v32" class="edge"/><rect x="350" y="660" width="300" height="65" rx="15" class="box"/><text x="500" y="692" class="txt">按 thread_id 恢复原任务</text>
+<path d="M660 352h130v340h-137" class="edge"/><text x="690" y="333" class="label">否</text>
+<path d="M500 725v36" class="edge"/><path d="M500 760l190 68-190 68-190-68z" class="decision"/><text x="500" y="824" class="txt">政策咨询还是<br/>订单操作？</text>
+<path d="M310 828h-115v82h35" class="edge"/><text x="218" y="808" class="label">政策咨询</text><rect x="35" y="915" width="300" height="88" rx="15" class="box"/><text x="185" y="949" class="txt">Chroma 检索店铺规则</text><text x="185" y="978" class="txt small">生成有依据的回复</text>
+<path d="M690 828h115v82h-35" class="edge"/><text x="776" y="808" class="label">订单操作</text><rect x="665" y="915" width="300" height="88" rx="15" class="box"/><text x="815" y="949" class="txt">订单核验 / 业务规则</text><text x="815" y="978" class="txt small">程序检查资格与状态</text>
+<path d="M815 1003v32" class="edge"/><path d="M815 1035l145 60-145 60-145-60z" class="decision"/><text x="815" y="1095" class="txt">允许操作？</text>
+<path d="M670 1095H535v52" class="edge"/><text x="590" y="1074" class="label">否</text><rect x="390" y="1150" width="290" height="62" rx="15" class="box"/><text x="535" y="1181" class="txt">说明拒绝原因</text>
+<path d="M815 1155v28h120v28" class="edge"/><text x="840" y="1174" class="label">是</text><rect x="740" y="1210" width="240" height="68" rx="15" class="decision"/><text x="860" y="1244" class="txt">人工审批暂停</text>
+<path d="M860 1278v28" class="edge"/><rect x="715" y="1310" width="290" height="72" rx="15" class="box"/><text x="860" y="1338" class="txt">批准后执行</text><text x="860" y="1365" class="txt small">拒绝后反馈</text>
+<path d="M185 1003v342h180" class="edge"/><path d="M535 1212v133h-170" class="edge"/><path d="M715 1346H365" class="edge"/><rect x="90" y="1310" width="280" height="72" rx="15" class="end"/><text x="230" y="1338" class="txt">保存结构化结果</text><text x="230" y="1365" class="txt small">生成受理或结果通知</text>
+</svg>
