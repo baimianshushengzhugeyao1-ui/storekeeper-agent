@@ -1,0 +1,813 @@
+{
+  "datasets": {
+    "retrieval_v1": {
+      "version": "retrieval_v1",
+      "authorship": "Codex-authored synthetic questions and evidence labels, fixed before first retrieval; not user-annotated or an external benchmark.",
+      "top_k": 3,
+      "label_policy": "Relevant means the chunk directly supports an explicitly requested fact. Topic overlap alone is insufficient. All necessary sections of multi-part questions are labeled. Negative cases have no answer in this corpus. Chinese cases are a separate paired language stress test, never pooled with English scores.",
+      "cases": [
+        {
+          "id": "en-a1",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "Can I change the shipping address once the order has already shipped?",
+          "reference_context_ids": [
+            "address-changes.md#when-an-address-can-be-changed"
+          ]
+        },
+        {
+          "id": "en-a2",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "My parcel has left the warehouse. Is editing its delivery address still allowed?",
+          "reference_context_ids": [
+            "address-changes.md#when-an-address-can-be-changed"
+          ]
+        },
+        {
+          "id": "en-a3",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "Which address fields and order identifier must I give support to request an address change?",
+          "reference_context_ids": [
+            "address-changes.md#how-to-request-a-change"
+          ]
+        },
+        {
+          "id": "en-a4",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "Does a team member have to approve my new delivery address before the change is applied?",
+          "reference_context_ids": [
+            "address-changes.md#how-to-request-a-change"
+          ]
+        },
+        {
+          "id": "en-a5",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "If an undeliverable parcel is returned to your warehouse, is its original shipping charge refunded?",
+          "reference_context_ids": [
+            "address-changes.md#refused-or-undeliverable-packages"
+          ]
+        },
+        {
+          "id": "en-a6",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "When do I get money back for a package that was sent back because it could not be delivered, and what cost is deducted?",
+          "reference_context_ids": [
+            "address-changes.md#refused-or-undeliverable-packages"
+          ]
+        },
+        {
+          "id": "en-a7",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "Before shipment, may I update my delivery address, and which new address details must I provide?",
+          "reference_context_ids": [
+            "address-changes.md#when-an-address-can-be-changed",
+            "address-changes.md#how-to-request-a-change"
+          ]
+        },
+        {
+          "id": "en-a8",
+          "group": "english_answerable",
+          "topic": "address",
+          "question": "Can a shipped order have its address changed, and if it comes back undeliverable will you keep the original shipping fee?",
+          "reference_context_ids": [
+            "address-changes.md#when-an-address-can-be-changed",
+            "address-changes.md#refused-or-undeliverable-packages"
+          ]
+        },
+        {
+          "id": "en-c1",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "Can an order be cancelled if only part of it has shipped?",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled"
+          ]
+        },
+        {
+          "id": "en-c2",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "Is cancellation available only before an order has been fulfilled?",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled"
+          ]
+        },
+        {
+          "id": "en-c3",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "After cancellation, what happens to reserved stock and which payment method receives the money?",
+          "reference_context_ids": [
+            "cancellations.md#what-happens-on-cancellation"
+          ]
+        },
+        {
+          "id": "en-c4",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "Do cancelled orders incur any charge, and is the whole amount returned?",
+          "reference_context_ids": [
+            "cancellations.md#what-happens-on-cancellation"
+          ]
+        },
+        {
+          "id": "en-c5",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "How do I submit a cancellation request, and does your team review it first?",
+          "reference_context_ids": [
+            "cancellations.md#how-to-cancel"
+          ]
+        },
+        {
+          "id": "en-c6",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "Can I reply to my order confirmation to cancel, and what order information should I include?",
+          "reference_context_ids": [
+            "cancellations.md#how-to-cancel"
+          ]
+        },
+        {
+          "id": "en-c7",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "Is a partly shipped order eligible for cancellation, and how would I submit a cancellation request?",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "cancellations.md#how-to-cancel"
+          ]
+        },
+        {
+          "id": "en-c8",
+          "group": "english_answerable",
+          "topic": "cancellation",
+          "question": "Must an order be unshipped to cancel it, and does cancellation release its reserved inventory?",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "cancellations.md#what-happens-on-cancellation"
+          ]
+        },
+        {
+          "id": "en-r1",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "Is a refund request made exactly 30 days after the order date still eligible?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#refund-window"
+          ]
+        },
+        {
+          "id": "en-r2",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "Is the refund deadline counted from ordering or delivery, and can support refund an order after that deadline?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#refund-window"
+          ]
+        },
+        {
+          "id": "en-r3",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "For an approved refund, where is the full order amount sent and how long might the bank take to display it?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#what-you-get-back"
+          ]
+        },
+        {
+          "id": "en-r4",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "Does an approved refund go to the original payment method, and is the bank posting time three to five business days?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#what-you-get-back"
+          ]
+        },
+        {
+          "id": "en-r5",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "What extra review applies to refunds above $100, and how much extra time can it add?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#high-value-orders"
+          ]
+        },
+        {
+          "id": "en-r6",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "My refund is $120. Does its value trigger an additional review before processing?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#high-value-orders"
+          ]
+        },
+        {
+          "id": "en-r7",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "Do items need to be unused and in their original packaging for a return?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#condition-of-items"
+          ]
+        },
+        {
+          "id": "en-r8",
+          "group": "english_answerable",
+          "topic": "refund",
+          "question": "What condition should returned items be in, and should I mention damage present on arrival in my request?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#condition-of-items"
+          ]
+        },
+        {
+          "id": "en-s1",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "How many business days do you take to process an order before shipping?",
+          "reference_context_ids": [
+            "shipping.md#processing-time"
+          ]
+        },
+        {
+          "id": "en-s2",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "Is order handling before dispatch expected to take one or two working days?",
+          "reference_context_ids": [
+            "shipping.md#processing-time"
+          ]
+        },
+        {
+          "id": "en-s3",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "Do you ship outside the United States, and what is the delivery estimate after processing?",
+          "reference_context_ids": [
+            "shipping.md#delivery-estimates"
+          ]
+        },
+        {
+          "id": "en-s4",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "For a US customer, how long should delivery take after the order has been processed?",
+          "reference_context_ids": [
+            "shipping.md#delivery-estimates"
+          ]
+        },
+        {
+          "id": "en-s5",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "If the tracking number has not updated for six business days, who should I contact and what should I provide?",
+          "reference_context_ids": [
+            "shipping.md#tracking"
+          ]
+        },
+        {
+          "id": "en-s6",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "After how many business days without a tracking update should I contact support with my order number?",
+          "reference_context_ids": [
+            "shipping.md#tracking"
+          ]
+        },
+        {
+          "id": "en-s7",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "My parcel is marked delivered but is missing. Will support investigate with the carrier?",
+          "reference_context_ids": [
+            "shipping.md#lost-or-delayed-packages"
+          ]
+        },
+        {
+          "id": "en-s8",
+          "group": "english_answerable",
+          "topic": "shipping",
+          "question": "If a package is over ten business days late, can support investigate and arrange a replacement or refund where appropriate?",
+          "reference_context_ids": [
+            "shipping.md#lost-or-delayed-packages"
+          ]
+        },
+        {
+          "id": "en-w1",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "How long is the warranty on an espresso machine, and is it counted from the delivery date?",
+          "reference_context_ids": [
+            "warranty.md#coverage"
+          ]
+        },
+        {
+          "id": "en-w2",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "Do kitchen appliances get the same twelve-month warranty as other products?",
+          "reference_context_ids": [
+            "warranty.md#coverage"
+          ]
+        },
+        {
+          "id": "en-w3",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "Does the warranty cover defects in materials and workmanship?",
+          "reference_context_ids": [
+            "warranty.md#what-is-covered"
+          ]
+        },
+        {
+          "id": "en-w4",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "My appliance stopped working during normal home use. Is that type of problem covered by the warranty?",
+          "reference_context_ids": [
+            "warranty.md#what-is-covered"
+          ]
+        },
+        {
+          "id": "en-w5",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "Are scratches, misuse damage, unauthorized repairs, or replacement filters covered under warranty?",
+          "reference_context_ids": [
+            "warranty.md#what-is-not-covered"
+          ]
+        },
+        {
+          "id": "en-w6",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "Does your warranty exclude wear and tear, accidents and consumable parts?",
+          "reference_context_ids": [
+            "warranty.md#what-is-not-covered"
+          ]
+        },
+        {
+          "id": "en-w7",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "What evidence should I send with a warranty claim, and what happens if the product is no longer available?",
+          "reference_context_ids": [
+            "warranty.md#how-to-claim"
+          ]
+        },
+        {
+          "id": "en-w8",
+          "group": "english_answerable",
+          "topic": "warranty",
+          "question": "When claiming warranty service, should I provide my order number, a problem description and a photo?",
+          "reference_context_ids": [
+            "warranty.md#how-to-claim"
+          ]
+        },
+        {
+          "id": "zh-a1",
+          "group": "chinese_stress",
+          "topic": "address",
+          "paired_english_id": "en-a1",
+          "question": "订单已经发货了，还能修改收货地址吗？",
+          "reference_context_ids": [
+            "address-changes.md#when-an-address-can-be-changed"
+          ]
+        },
+        {
+          "id": "zh-a5",
+          "group": "chinese_stress",
+          "topic": "address",
+          "paired_english_id": "en-a5",
+          "question": "包裹无法投递，被退回仓库后，原运费也会退给我吗？",
+          "reference_context_ids": [
+            "address-changes.md#refused-or-undeliverable-packages"
+          ]
+        },
+        {
+          "id": "zh-c1",
+          "group": "chinese_stress",
+          "topic": "cancellation",
+          "paired_english_id": "en-c1",
+          "question": "订单有一部分已经发货了，还可以取消吗？",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled"
+          ]
+        },
+        {
+          "id": "zh-c3",
+          "group": "chinese_stress",
+          "topic": "cancellation",
+          "paired_english_id": "en-c3",
+          "question": "取消订单后，预留库存怎么处理，款项会退回哪种支付方式？",
+          "reference_context_ids": [
+            "cancellations.md#what-happens-on-cancellation"
+          ]
+        },
+        {
+          "id": "zh-r1",
+          "group": "chinese_stress",
+          "topic": "refund",
+          "paired_english_id": "en-r1",
+          "question": "从下单日期算起，刚好第30天申请退款，还符合条件吗？",
+          "reference_context_ids": [
+            "returns-and-refunds.md#refund-window"
+          ]
+        },
+        {
+          "id": "zh-r5",
+          "group": "chinese_stress",
+          "topic": "refund",
+          "paired_english_id": "en-r5",
+          "question": "退款金额超过100美元，需要什么额外审核，最多会多花多久？",
+          "reference_context_ids": [
+            "returns-and-refunds.md#high-value-orders"
+          ]
+        },
+        {
+          "id": "zh-s1",
+          "group": "chinese_stress",
+          "topic": "shipping",
+          "paired_english_id": "en-s1",
+          "question": "订单发货前的处理，需要几个工作日？",
+          "reference_context_ids": [
+            "shipping.md#processing-time"
+          ]
+        },
+        {
+          "id": "zh-s5",
+          "group": "chinese_stress",
+          "topic": "shipping",
+          "paired_english_id": "en-s5",
+          "question": "物流轨迹六个工作日没有更新，我该联系谁，提供什么信息？",
+          "reference_context_ids": [
+            "shipping.md#tracking"
+          ]
+        },
+        {
+          "id": "zh-w1",
+          "group": "chinese_stress",
+          "topic": "warranty",
+          "paired_english_id": "en-w1",
+          "question": "咖啡机保修多久，是从送达日期开始算吗？",
+          "reference_context_ids": [
+            "warranty.md#coverage"
+          ]
+        },
+        {
+          "id": "zh-w5",
+          "group": "chinese_stress",
+          "topic": "warranty",
+          "paired_english_id": "en-w5",
+          "question": "划痕、误用损坏、未经授权的维修和替换滤芯，在保修范围内吗？",
+          "reference_context_ids": [
+            "warranty.md#what-is-not-covered"
+          ]
+        },
+        {
+          "id": "ood-1",
+          "group": "unanswerable",
+          "topic": "no_policy",
+          "question": "Can I pay for my purchase in six monthly installments?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "ood-2",
+          "group": "unanswerable",
+          "topic": "no_policy",
+          "question": "How much do you charge for gift wrapping?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "ood-3",
+          "group": "unanswerable",
+          "topic": "no_policy",
+          "question": "What wholesale discount is offered when I buy fifty units?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "ood-4",
+          "group": "unanswerable",
+          "topic": "no_policy",
+          "question": "How do I redeem loyalty points for a membership discount?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "ood-5",
+          "group": "unanswerable",
+          "topic": "no_policy",
+          "question": "Do you offer same-day pickup at a physical shop, and where is it located?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "ood-6",
+          "group": "unanswerable",
+          "topic": "no_policy",
+          "question": "Which credit cards and digital wallets are accepted at checkout?",
+          "reference_context_ids": []
+        }
+      ]
+    },
+    "retrieval_v2_holdout": {
+      "version": "v2-additional-synthetic-20261104",
+      "top_k": 3,
+      "scope": "Codex-authored synthetic additional set frozen before retrieval runs. Not independently annotated or production data. Old v1 results are known; this set is not used for threshold tuning. Labels are never sent to the model.",
+      "cases": [
+        {
+          "id": "v2-en1",
+          "group": "english_answerable",
+          "question": "The warranty product cannot be replaced because it is no longer sold. What remedy is offered?",
+          "reference_context_ids": [
+            "warranty.md#how-to-claim"
+          ]
+        },
+        {
+          "id": "v2-en2",
+          "group": "english_answerable",
+          "question": "My refund is exactly 100 dollars. Does the stated high-value review threshold include that amount?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#high-value-orders"
+          ]
+        },
+        {
+          "id": "v2-en3",
+          "group": "english_answerable",
+          "question": "A parcel shows delivered but I have nothing. What does support do in this case?",
+          "reference_context_ids": [
+            "shipping.md#lost-or-delayed-packages"
+          ]
+        },
+        {
+          "id": "v2-en4",
+          "group": "english_answerable",
+          "question": "Can you send my parcel to Canada, and what is the US delivery estimate after processing?",
+          "reference_context_ids": [
+            "shipping.md#delivery-estimates"
+          ]
+        },
+        {
+          "id": "v2-en5",
+          "group": "english_answerable",
+          "question": "Does the returns deadline start when I order, and does the warranty start when I receive the item?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#refund-window",
+            "warranty.md#coverage"
+          ]
+        },
+        {
+          "id": "v2-en6",
+          "group": "english_answerable",
+          "question": "A parcel is on its way. Can I cancel it or change the destination address now?",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "address-changes.md#when-an-address-can-be-changed"
+          ]
+        },
+        {
+          "id": "v2-en7",
+          "group": "english_answerable",
+          "question": "The box arrived with a broken item 12 days after ordering. What should I mention in the refund request?",
+          "reference_context_ids": [
+            "returns-and-refunds.md#condition-of-items"
+          ]
+        },
+        {
+          "id": "v2-en8",
+          "group": "english_answerable",
+          "question": "If I ask for a different shipping address, what information is required and who authorizes the change?",
+          "reference_context_ids": [
+            "address-changes.md#how-to-request-a-change"
+          ]
+        },
+        {
+          "id": "v2-zh1",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en1",
+          "question": "保修商品已经停售，无法换新了，店铺会提供什么补救？",
+          "reference_context_ids": [
+            "warranty.md#how-to-claim"
+          ]
+        },
+        {
+          "id": "v2-zh2",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en2",
+          "question": "退款恰好一百美元，也属于规则中需要额外审核的高金额退款吗？",
+          "reference_context_ids": [
+            "returns-and-refunds.md#high-value-orders"
+          ]
+        },
+        {
+          "id": "v2-zh3",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en3",
+          "question": "物流显示签收了，但我没收到，客服会怎样处理？",
+          "reference_context_ids": [
+            "shipping.md#lost-or-delayed-packages"
+          ]
+        },
+        {
+          "id": "v2-zh4",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en4",
+          "question": "可以寄到加拿大吗？寄美国在处理完订单后预计多久送达？",
+          "reference_context_ids": [
+            "shipping.md#delivery-estimates"
+          ]
+        },
+        {
+          "id": "v2-zh5",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en5",
+          "question": "退钱期限从下单算起，保修则从我收到货算起，对吗？",
+          "reference_context_ids": [
+            "returns-and-refunds.md#refund-window",
+            "warranty.md#coverage"
+          ]
+        },
+        {
+          "id": "v2-zh6",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en6",
+          "question": "包裹已经在路上了，现在还能撤单或者修改收货地址吗？",
+          "reference_context_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "address-changes.md#when-an-address-can-be-changed"
+          ]
+        },
+        {
+          "id": "v2-zh7",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en7",
+          "question": "下单十二天后收到破损商品，申请退款时应该说明什么？",
+          "reference_context_ids": [
+            "returns-and-refunds.md#condition-of-items"
+          ]
+        },
+        {
+          "id": "v2-zh8",
+          "group": "chinese_stress",
+          "paired_english_id": "v2-en8",
+          "question": "想换个收货地址，需要提供哪些信息，由谁批准修改？",
+          "reference_context_ids": [
+            "address-changes.md#how-to-request-a-change"
+          ]
+        },
+        {
+          "id": "v2-ood1",
+          "group": "unanswerable",
+          "question": "What temperature should I use to descale the espresso machine?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "v2-ood2",
+          "group": "unanswerable",
+          "question": "你们有学生优惠码吗，如何领取？",
+          "reference_context_ids": []
+        },
+        {
+          "id": "v2-ood3",
+          "group": "unanswerable",
+          "question": "Are payments encrypted using AES-256?",
+          "reference_context_ids": []
+        },
+        {
+          "id": "v2-ood4",
+          "group": "unanswerable",
+          "question": "My order is #1036. Where is the delivery truck at this moment?",
+          "reference_context_ids": []
+        }
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+      "document_name": "address-changes.md",
+      "heading": "When an address can be changed",
+      "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou."
+    },
+    {
+      "chunk_id": "address-changes.md#how-to-request-a-change",
+      "document_name": "address-changes.md",
+      "heading": "How to request a change",
+      "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you."
+    },
+    {
+      "chunk_id": "address-changes.md#refused-or-undeliverable-packages",
+      "document_name": "address-changes.md",
+      "heading": "Refused or undeliverable packages",
+      "document_text": "# Address Changes\n\n## Refused or undeliverable packages\n\nPackages returned to us as undeliverable are refunded minus the original\nshipping cost once they arrive back at our warehouse."
+    },
+    {
+      "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+      "document_name": "cancellations.md",
+      "heading": "When an order can be cancelled",
+      "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives."
+    },
+    {
+      "chunk_id": "cancellations.md#what-happens-on-cancellation",
+      "document_name": "cancellations.md",
+      "heading": "What happens on cancellation",
+      "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder."
+    },
+    {
+      "chunk_id": "cancellations.md#how-to-cancel",
+      "document_name": "cancellations.md",
+      "heading": "How to cancel",
+      "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out."
+    },
+    {
+      "chunk_id": "returns-and-refunds.md#refund-window",
+      "document_name": "returns-and-refunds.md",
+      "heading": "Refund window",
+      "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies."
+    },
+    {
+      "chunk_id": "returns-and-refunds.md#what-you-get-back",
+      "document_name": "returns-and-refunds.md",
+      "heading": "What you get back",
+      "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money."
+    },
+    {
+      "chunk_id": "returns-and-refunds.md#high-value-orders",
+      "document_name": "returns-and-refunds.md",
+      "heading": "High-value orders",
+      "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day."
+    },
+    {
+      "chunk_id": "returns-and-refunds.md#condition-of-items",
+      "document_name": "returns-and-refunds.md",
+      "heading": "Condition of items",
+      "document_text": "# Returns & Refunds\n\n## Condition of items\n\nItems should be unused and in their original packaging. If an item arrived\ndamaged or defective, mention it in your request — damaged-on-arrival items\nare always refundable within the 30-day window."
+    },
+    {
+      "chunk_id": "shipping.md#processing-time",
+      "document_name": "shipping.md",
+      "heading": "Processing time",
+      "document_text": "# Shipping\n\n## Processing time\n\nOrders are processed within **1–2 business days**. You will receive a\nconfirmation email with tracking once your order ships."
+    },
+    {
+      "chunk_id": "shipping.md#delivery-estimates",
+      "document_name": "shipping.md",
+      "heading": "Delivery estimates",
+      "document_text": "# Shipping\n\n## Delivery estimates\n\n- United States: 3–7 business days after processing.\n- We currently ship within the United States only."
+    },
+    {
+      "chunk_id": "shipping.md#tracking",
+      "document_name": "shipping.md",
+      "heading": "Tracking",
+      "document_text": "# Shipping\n\n## Tracking\n\nEvery shipment includes a tracking number, sent by email when the order\nleaves our warehouse. If your tracking has not updated for more than 5\nbusiness days, contact support with your order number."
+    },
+    {
+      "chunk_id": "shipping.md#lost-or-delayed-packages",
+      "document_name": "shipping.md",
+      "heading": "Lost or delayed packages",
+      "document_text": "# Shipping\n\n## Lost or delayed packages\n\nIf a package is marked delivered but has not arrived, or is more than 10\nbusiness days late, contact support — we will investigate with the carrier\nand arrange a replacement or refund where appropriate."
+    },
+    {
+      "chunk_id": "warranty.md#coverage",
+      "document_name": "warranty.md",
+      "heading": "Coverage",
+      "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months."
+    },
+    {
+      "chunk_id": "warranty.md#what-is-covered",
+      "document_name": "warranty.md",
+      "heading": "What is covered",
+      "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use."
+    },
+    {
+      "chunk_id": "warranty.md#what-is-not-covered",
+      "document_name": "warranty.md",
+      "heading": "What is not covered",
+      "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters."
+    },
+    {
+      "chunk_id": "warranty.md#how-to-claim",
+      "document_name": "warranty.md",
+      "heading": "How to claim",
+      "document_text": "# Warranty\n\n## How to claim\n\nContact support with your order number, a short description of the problem,\nand a photo if possible. Valid claims receive a replacement, or a refund if\nthe product is no longer available."
+    }
+  ],
+  "source_sha256": {
+    "src\\storekeeper\\advanced_retrieval.py": "1ca421ea6771f6fd495c08a26626d34592cadf43993d65dd051a85a82d24386d",
+    "src\\storekeeper\\policy_docs.py": "7279952ad4e730016cc3f1e2b7f9aecb66a998bca5aa04f98815845df8a618ae"
+  },
+  "variants": [
+    "dense",
+    "hybrid",
+    "translated_hybrid",
+    "enhanced"
+  ],
+  "top_k": 3,
+  "candidates": 8,
+  "rrf_constant": 60,
+  "grade_minimum": 2
+}

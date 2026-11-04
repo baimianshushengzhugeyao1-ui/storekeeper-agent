@@ -1,0 +1,358 @@
+[
+  {
+    "question": "咖啡机的保修从哪一天开始算，一共多久？",
+    "result": {
+      "task_id": "task-1",
+      "task": {
+        "task_id": "task-1",
+        "intent": "policy_question",
+        "requested_action": null,
+        "order_reference": null,
+        "new_shipping_address": null,
+        "confidence": 1.0
+      },
+      "outcome": "answered",
+      "gate_verdict": null,
+      "action_result": {
+        "answer": "保修期为12个月，从收货日期（delivery date）起算。咖啡机属于厨房电器，同样适用这12个月的保修期。",
+        "retrieval_trace": {
+          "calls": [
+            {
+              "stage": "rewrite",
+              "seconds": 5.8708,
+              "usage": {
+                "input_tokens": 348,
+                "output_tokens": 47,
+                "total_tokens": 395,
+                "input_token_details": {
+                  "cache_read": 128
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "stage": "grade",
+              "seconds": 1.845,
+              "usage": {
+                "input_tokens": 1679,
+                "output_tokens": 174,
+                "total_tokens": 1853,
+                "input_token_details": {
+                  "cache_read": 384
+                },
+                "output_token_details": {}
+              }
+            }
+          ],
+          "stages": {
+            "retrieval_seconds": 0.7341
+          },
+          "configuration": {
+            "top_k": 3,
+            "candidates": 8,
+            "rewrite": true,
+            "rerank": true,
+            "rrf_constant": 60,
+            "transport_retries": 1
+          },
+          "search_query": "When does the coffee machine warranty start, and how long is the warranty period?",
+          "dense_ids": [
+            "warranty.md#coverage",
+            "warranty.md#what-is-not-covered",
+            "warranty.md#what-is-covered",
+            "returns-and-refunds.md#refund-window",
+            "warranty.md#how-to-claim",
+            "returns-and-refunds.md#condition-of-items",
+            "returns-and-refunds.md#high-value-orders",
+            "address-changes.md#refused-or-undeliverable-packages"
+          ],
+          "bm25_ids": [
+            "warranty.md#coverage",
+            "warranty.md#how-to-claim",
+            "warranty.md#what-is-not-covered",
+            "address-changes.md#when-an-address-can-be-changed",
+            "address-changes.md#how-to-request-a-change",
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "warranty.md#what-is-covered",
+            "shipping.md#lost-or-delayed-packages"
+          ],
+          "candidates": [
+            {
+              "chunk_id": "warranty.md#coverage",
+              "document_name": "warranty.md",
+              "heading": "Coverage",
+              "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+              "distance": 0.440438449382782,
+              "rrf_score": 0.03278688524590164,
+              "retrieval_ranks": {
+                "0": 1,
+                "1": 1
+              }
+            },
+            {
+              "chunk_id": "warranty.md#what-is-not-covered",
+              "document_name": "warranty.md",
+              "heading": "What is not covered",
+              "document_text": "# Warranty\n\n## What is not covered\n\n- Normal wear and tear (scratches, fading).\n- Damage from misuse, accidents, or unauthorized repair.\n- Consumable parts such as filters.",
+              "distance": 0.6750748157501221,
+              "rrf_score": 0.03200204813108039,
+              "retrieval_ranks": {
+                "0": 2,
+                "1": 3
+              }
+            },
+            {
+              "chunk_id": "warranty.md#how-to-claim",
+              "document_name": "warranty.md",
+              "heading": "How to claim",
+              "document_text": "# Warranty\n\n## How to claim\n\nContact support with your order number, a short description of the problem,\nand a photo if possible. Valid claims receive a replacement, or a refund if\nthe product is no longer available.",
+              "distance": 0.7204391956329346,
+              "rrf_score": 0.0315136476426799,
+              "retrieval_ranks": {
+                "0": 5,
+                "1": 2
+              }
+            },
+            {
+              "chunk_id": "warranty.md#what-is-covered",
+              "document_name": "warranty.md",
+              "heading": "What is covered",
+              "document_text": "# Warranty\n\n## What is covered\n\n- Defects in materials or workmanship.\n- Products that stop working under normal home use.",
+              "distance": 0.6800861358642578,
+              "rrf_score": 0.030798389007344232,
+              "retrieval_ranks": {
+                "0": 3,
+                "1": 7
+              }
+            },
+            {
+              "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+              "document_name": "address-changes.md",
+              "heading": "When an address can be changed",
+              "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+              "bm25_score": 3.5168925732388403,
+              "rrf_score": 0.015625,
+              "retrieval_ranks": {
+                "1": 4
+              }
+            },
+            {
+              "chunk_id": "returns-and-refunds.md#refund-window",
+              "document_name": "returns-and-refunds.md",
+              "heading": "Refund window",
+              "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+              "distance": 0.7005209922790527,
+              "rrf_score": 0.015625,
+              "retrieval_ranks": {
+                "0": 4
+              }
+            },
+            {
+              "chunk_id": "address-changes.md#how-to-request-a-change",
+              "document_name": "address-changes.md",
+              "heading": "How to request a change",
+              "document_text": "# Address Changes\n\n## How to request a change\n\nContact support with your order number and the complete new address (street,\ncity, state, ZIP, country). After a team member reviews and approves the\nrequest, we apply the change and confirm it back to you.",
+              "bm25_score": 3.3969630635287995,
+              "rrf_score": 0.015384615384615385,
+              "retrieval_ranks": {
+                "1": 5
+              }
+            },
+            {
+              "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+              "document_name": "cancellations.md",
+              "heading": "When an order can be cancelled",
+              "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+              "bm25_score": 3.2771826196326517,
+              "rrf_score": 0.015151515151515152,
+              "retrieval_ranks": {
+                "1": 6
+              }
+            }
+          ],
+          "grade": {
+            "sufficient": true,
+            "evidence": [
+              {
+                "chunk_id": "warranty.md#coverage",
+                "relevance": 3,
+                "quote": "All products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months."
+              }
+            ],
+            "reason": "The coverage section states the warranty is 12 months and counted from the delivery date, and explicitly includes espresso machines (coffee machines) for the same 12 months. This directly answers both the start date and duration."
+          },
+          "rejected_evidence_ids": [],
+          "total_seconds": 8.483,
+          "status": "supported"
+        }
+      },
+      "policy_citations": [
+        "warranty.md"
+      ]
+    }
+  },
+  {
+    "question": "Can I pay using six monthly installments?",
+    "result": {
+      "task_id": "task-1",
+      "task": {
+        "task_id": "task-1",
+        "intent": "policy_question",
+        "requested_action": null,
+        "order_reference": null,
+        "new_shipping_address": null,
+        "confidence": 1.0
+      },
+      "outcome": "escalated_to_human",
+      "gate_verdict": null,
+      "action_result": {
+        "reason": "The available store rules do not provide verified evidence for an automatic answer; a team member must review this question.",
+        "retrieval_trace": {
+          "calls": [
+            {
+              "stage": "grade",
+              "seconds": 1.8206,
+              "usage": {
+                "input_tokens": 1674,
+                "output_tokens": 101,
+                "total_tokens": 1775,
+                "input_token_details": {
+                  "cache_read": 384
+                },
+                "output_token_details": {}
+              }
+            }
+          ],
+          "stages": {
+            "retrieval_seconds": 0.7043
+          },
+          "configuration": {
+            "top_k": 3,
+            "candidates": 8,
+            "rewrite": true,
+            "rerank": true,
+            "rrf_constant": 60,
+            "transport_retries": 1
+          },
+          "search_query": "Can I pay using six monthly installments?",
+          "dense_ids": [
+            "cancellations.md#what-happens-on-cancellation",
+            "returns-and-refunds.md#high-value-orders",
+            "returns-and-refunds.md#refund-window",
+            "returns-and-refunds.md#what-you-get-back",
+            "warranty.md#coverage",
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "cancellations.md#how-to-cancel",
+            "returns-and-refunds.md#condition-of-items"
+          ],
+          "bm25_ids": [
+            "cancellations.md#when-an-order-can-be-cancelled",
+            "address-changes.md#when-an-address-can-be-changed",
+            "returns-and-refunds.md#high-value-orders"
+          ],
+          "candidates": [
+            {
+              "chunk_id": "returns-and-refunds.md#high-value-orders",
+              "document_name": "returns-and-refunds.md",
+              "heading": "High-value orders",
+              "document_text": "# Returns & Refunds\n\n## High-value orders\n\nRefunds over **$100** receive an additional review by our team before they are\nprocessed. This can add up to one business day.",
+              "distance": 0.77245032787323,
+              "rrf_score": 0.03200204813108039,
+              "retrieval_ranks": {
+                "0": 2,
+                "1": 3
+              }
+            },
+            {
+              "chunk_id": "cancellations.md#when-an-order-can-be-cancelled",
+              "document_name": "cancellations.md",
+              "heading": "When an order can be cancelled",
+              "document_text": "# Cancellations\n\n## When an order can be cancelled\n\nAn order can be cancelled **only while it is unfulfilled** — that is, before\nit has shipped. Once an order has shipped (fully or partially), it can no\nlonger be cancelled; use a return and refund instead once it arrives.",
+              "distance": 0.8631649613380432,
+              "rrf_score": 0.031544957774465976,
+              "retrieval_ranks": {
+                "0": 6,
+                "1": 1
+              }
+            },
+            {
+              "chunk_id": "cancellations.md#what-happens-on-cancellation",
+              "document_name": "cancellations.md",
+              "heading": "What happens on cancellation",
+              "document_text": "# Cancellations\n\n## What happens on cancellation\n\nCancelled orders are refunded in full to the original payment method, and any\nreserved stock is released. You will not be charged anything for a cancelled\norder.",
+              "distance": 0.7713356018066406,
+              "rrf_score": 0.01639344262295082,
+              "retrieval_ranks": {
+                "0": 1
+              }
+            },
+            {
+              "chunk_id": "address-changes.md#when-an-address-can-be-changed",
+              "document_name": "address-changes.md",
+              "heading": "When an address can be changed",
+              "document_text": "# Address Changes\n\n## When an address can be changed\n\nThe shipping address on an order can be changed **only while the order is\nunfulfilled**. Once an order has shipped, the address can no longer be\nchanged; if delivery fails, the package returns to us and we will contact\nyou.",
+              "bm25_score": 2.5205241348925718,
+              "rrf_score": 0.016129032258064516,
+              "retrieval_ranks": {
+                "1": 2
+              }
+            },
+            {
+              "chunk_id": "returns-and-refunds.md#refund-window",
+              "document_name": "returns-and-refunds.md",
+              "heading": "Refund window",
+              "document_text": "# Returns & Refunds\n\n## Refund window\n\nWe accept refund requests within **30 days of the order date**. Requests made\nafter 30 days cannot be refunded through support; day 30 itself still\nqualifies.",
+              "distance": 0.7955097556114197,
+              "rrf_score": 0.015873015873015872,
+              "retrieval_ranks": {
+                "0": 3
+              }
+            },
+            {
+              "chunk_id": "returns-and-refunds.md#what-you-get-back",
+              "document_name": "returns-and-refunds.md",
+              "heading": "What you get back",
+              "document_text": "# Returns & Refunds\n\n## What you get back\n\nApproved refunds return the **full order amount to the original payment\nmethod**. Refunds are processed as soon as a member of our team approves the\nrequest; your bank may take 3–5 business days to show the money.",
+              "distance": 0.827068567276001,
+              "rrf_score": 0.015625,
+              "retrieval_ranks": {
+                "0": 4
+              }
+            },
+            {
+              "chunk_id": "warranty.md#coverage",
+              "document_name": "warranty.md",
+              "heading": "Coverage",
+              "document_text": "# Warranty\n\n## Coverage\n\nAll products carry a **12-month warranty** against manufacturing defects,\ncounted from the delivery date. Kitchen appliances (for example espresso\nmachines) are covered for the same 12 months.",
+              "distance": 0.8383135199546814,
+              "rrf_score": 0.015384615384615385,
+              "retrieval_ranks": {
+                "0": 5
+              }
+            },
+            {
+              "chunk_id": "cancellations.md#how-to-cancel",
+              "document_name": "cancellations.md",
+              "heading": "How to cancel",
+              "document_text": "# Cancellations\n\n## How to cancel\n\nReply to your order confirmation or contact support with your order number\n(for example `#1036`). Cancellation requests are reviewed by our team before\nthey are carried out.",
+              "distance": 0.8794956803321838,
+              "rrf_score": 0.014925373134328358,
+              "retrieval_ranks": {
+                "0": 7
+              }
+            }
+          ],
+          "grade": {
+            "sufficient": false,
+            "evidence": [],
+            "reason": "None of the candidate chunks address payment methods or installment options. They cover refunds, cancellations, address changes, and warranty, but contain no rule about paying in six monthly installments."
+          },
+          "rejected_evidence_ids": [],
+          "total_seconds": 2.5402,
+          "status": "insufficient_evidence"
+        }
+      },
+      "policy_citations": []
+    }
+  }
+]

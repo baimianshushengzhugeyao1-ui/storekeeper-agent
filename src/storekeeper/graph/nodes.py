@@ -5,6 +5,7 @@ and drafts; it never chooses which node runs next.
 """
 
 import json
+import os
 from datetime import datetime, timezone
 from typing import Callable, Literal
 
@@ -155,7 +156,28 @@ def answer_policy_task(
     question_task: Task,
     answer_model: BaseChatModel,
 ) -> TaskResult:
-    policy_extracts = find_policy_context(question_task, ticket_text=ticket_text)
+    retrieval_trace = None
+    mode = os.getenv("POLICY_RETRIEVAL_MODE", "baseline")
+    if mode == "enhanced":
+        from storekeeper.advanced_retrieval import retrieve_policy_chunks
+        try:
+            retrieval = retrieve_policy_chunks(ticket_text, model=answer_model)
+            retrieval_trace = retrieval["trace"]
+            policy_extracts = [{"document_name": row["document_name"],
+                                "document_text": row["document_text"]} for row in retrieval["results"]]
+        except Exception as error:
+            # Fail closed: do not ask an answerer to guess after retrieval failure.
+            retrieval_trace = {"status": "retrieval_error", "error_type": type(error).__name__}
+            policy_extracts = []
+        if not policy_extracts:
+            return {"task_id": get_task_id(question_task), "task": question_task,
+                    "outcome": "escalated_to_human", "gate_verdict": None,
+                    "action_result": {"reason": "The available store rules do not provide verified evidence for an automatic answer; a team member must review this question.",
+                                      "retrieval_trace": retrieval_trace}, "policy_citations": []}
+    elif mode == "baseline":
+        policy_extracts = find_policy_context(question_task, ticket_text=ticket_text)
+    else:
+        raise ValueError("POLICY_RETRIEVAL_MODE must be baseline or enhanced.")
     structured_answerer = answer_model.with_structured_output(PolicyAnswer)
     policy_answer = structured_answerer.invoke(
         [
@@ -181,7 +203,7 @@ def answer_policy_task(
         "task": question_task,
         "outcome": "answered",
         "gate_verdict": None,
-        "action_result": {"answer": policy_answer.answer},
+        "action_result": {"answer": policy_answer.answer, **({"retrieval_trace": retrieval_trace} if retrieval_trace else {})},
         "policy_citations": verified_citations,
     }
 

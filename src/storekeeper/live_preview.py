@@ -1,6 +1,7 @@
 """Real DeepSeek calls with fixture orders only; never contacts Shopify."""
 
 import argparse
+import os
 import sqlite3
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -22,6 +23,8 @@ NOTICE = ('<aside style="background:#fff3cd;padding:12px;font:14px/1.5 sans-seri
 
 
 def create_live_preview(directory: Path | None = None, model=None):
+    from chromadb.utils.embedding_functions.onnx_mini_lm_l6_v2 import ONNXMiniLM_L6_V2
+    ONNXMiniLM_L6_V2.DOWNLOAD_PATH = PROJECT_ROOT / 'var/embedding_cache/all-MiniLM-L6-v2'
     model = model if model is not None else create_live_model()
     directory = directory or PROJECT_ROOT / 'var' / 'live_preview'
     directory.mkdir(parents=True, exist_ok=True)
@@ -64,7 +67,10 @@ def create_live_preview(directory: Path | None = None, model=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=8766)
+    parser.add_argument('--rag', choices=['baseline', 'enhanced'], help='Override POLICY_RETRIEVAL_MODE for this preview.')
     arguments = parser.parse_args()
+    if arguments.rag:
+        os.environ['POLICY_RETRIEVAL_MODE'] = arguments.rag
     uvicorn.run(create_live_preview(), host='127.0.0.1', port=arguments.port)
 
 

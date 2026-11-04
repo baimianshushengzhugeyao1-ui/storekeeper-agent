@@ -1,0 +1,27 @@
+{
+  "version":"v2-additional-synthetic-20261104",
+  "top_k":3,
+  "scope":"Codex-authored synthetic additional set frozen before retrieval runs. Not independently annotated or production data. Old v1 results are known; this set is not used for threshold tuning. Labels are never sent to the model.",
+  "cases":[
+    {"id":"v2-en1","group":"english_answerable","question":"The warranty product cannot be replaced because it is no longer sold. What remedy is offered?","reference_context_ids":["warranty.md#how-to-claim"]},
+    {"id":"v2-en2","group":"english_answerable","question":"My refund is exactly 100 dollars. Does the stated high-value review threshold include that amount?","reference_context_ids":["returns-and-refunds.md#high-value-orders"]},
+    {"id":"v2-en3","group":"english_answerable","question":"A parcel shows delivered but I have nothing. What does support do in this case?","reference_context_ids":["shipping.md#lost-or-delayed-packages"]},
+    {"id":"v2-en4","group":"english_answerable","question":"Can you send my parcel to Canada, and what is the US delivery estimate after processing?","reference_context_ids":["shipping.md#delivery-estimates"]},
+    {"id":"v2-en5","group":"english_answerable","question":"Does the returns deadline start when I order, and does the warranty start when I receive the item?","reference_context_ids":["returns-and-refunds.md#refund-window","warranty.md#coverage"]},
+    {"id":"v2-en6","group":"english_answerable","question":"A parcel is on its way. Can I cancel it or change the destination address now?","reference_context_ids":["cancellations.md#when-an-order-can-be-cancelled","address-changes.md#when-an-address-can-be-changed"]},
+    {"id":"v2-en7","group":"english_answerable","question":"The box arrived with a broken item 12 days after ordering. What should I mention in the refund request?","reference_context_ids":["returns-and-refunds.md#condition-of-items"]},
+    {"id":"v2-en8","group":"english_answerable","question":"If I ask for a different shipping address, what information is required and who authorizes the change?","reference_context_ids":["address-changes.md#how-to-request-a-change"]},
+    {"id":"v2-zh1","group":"chinese_stress","paired_english_id":"v2-en1","question":"保修商品已经停售，无法换新了，店铺会提供什么补救？","reference_context_ids":["warranty.md#how-to-claim"]},
+    {"id":"v2-zh2","group":"chinese_stress","paired_english_id":"v2-en2","question":"退款恰好一百美元，也属于规则中需要额外审核的高金额退款吗？","reference_context_ids":["returns-and-refunds.md#high-value-orders"]},
+    {"id":"v2-zh3","group":"chinese_stress","paired_english_id":"v2-en3","question":"物流显示签收了，但我没收到，客服会怎样处理？","reference_context_ids":["shipping.md#lost-or-delayed-packages"]},
+    {"id":"v2-zh4","group":"chinese_stress","paired_english_id":"v2-en4","question":"可以寄到加拿大吗？寄美国在处理完订单后预计多久送达？","reference_context_ids":["shipping.md#delivery-estimates"]},
+    {"id":"v2-zh5","group":"chinese_stress","paired_english_id":"v2-en5","question":"退钱期限从下单算起，保修则从我收到货算起，对吗？","reference_context_ids":["returns-and-refunds.md#refund-window","warranty.md#coverage"]},
+    {"id":"v2-zh6","group":"chinese_stress","paired_english_id":"v2-en6","question":"包裹已经在路上了，现在还能撤单或者修改收货地址吗？","reference_context_ids":["cancellations.md#when-an-order-can-be-cancelled","address-changes.md#when-an-address-can-be-changed"]},
+    {"id":"v2-zh7","group":"chinese_stress","paired_english_id":"v2-en7","question":"下单十二天后收到破损商品，申请退款时应该说明什么？","reference_context_ids":["returns-and-refunds.md#condition-of-items"]},
+    {"id":"v2-zh8","group":"chinese_stress","paired_english_id":"v2-en8","question":"想换个收货地址，需要提供哪些信息，由谁批准修改？","reference_context_ids":["address-changes.md#how-to-request-a-change"]},
+    {"id":"v2-ood1","group":"unanswerable","question":"What temperature should I use to descale the espresso machine?","reference_context_ids":[]},
+    {"id":"v2-ood2","group":"unanswerable","question":"你们有学生优惠码吗，如何领取？","reference_context_ids":[]},
+    {"id":"v2-ood3","group":"unanswerable","question":"Are payments encrypted using AES-256?","reference_context_ids":[]},
+    {"id":"v2-ood4","group":"unanswerable","question":"My order is #1036. Where is the delivery truck at this moment?","reference_context_ids":[]}
+  ]
+}

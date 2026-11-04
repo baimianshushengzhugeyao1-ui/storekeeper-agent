@@ -23,6 +23,24 @@
 
 检查点复用 LangGraph 提供的持久化机制。业务状态记忆只覆盖工单内的结构化追问，不是通用长期记忆。进程内锁不提供多进程互斥或外部业务“恰好执行一次”的保证。
 
+
+## 增强 RAG（二开，2026-11-04）
+
+针对中文查询英文规则的漏召回问题，新增 LangGraph 检索子图：查询改写、
+BM25/向量双路召回、RRF 融合、LLM 证据筛选与原文引用核验，资料不足时
+转人工。原10条中文合成回归题 Recall@3 从60%升至100%；保留网络失败、
+补测及引用校验修复的全部过程，新增英文题仍有漏召回，不能包装为生产效果。
+
+- [设计、运行和参考资料](docs/advanced-rag.md)
+- [实测结果与失败分析](docs/advanced-rag-results.md)
+- [原始评测证据](evidence/advanced_rag)
+
+运行 `start_rag_preview.cmd` 打开真实模型＋模拟订单的增强预览（8767端口），
+或先运行 `uv run python scripts/index_policies.py`，再运行
+`uv run python -m storekeeper.live_preview --rag enhanced --port 8767`。
+会消耗模型API额度。默认仍为 baseline，可显式切换 enhanced；没有新增外部
+Embedding或重排服务。最终140项本地测试通过。
+
 ## 快速运行
 
 需要 Python 3.11+、[uv](https://docs.astral.sh/uv/) 与 Node.js/npm。
