@@ -158,6 +158,22 @@ def answer_policy_task(
 ) -> TaskResult:
     retrieval_trace = None
     mode = os.getenv("POLICY_RETRIEVAL_MODE", "baseline")
+    if mode == "agentic":
+        from storekeeper.tool_agent import run_tool_agent
+        try:
+            result = run_tool_agent(ticket_text, model=answer_model)
+            return {"task_id": get_task_id(question_task), "task": question_task,
+                    "outcome": "escalated_to_human" if result["had_error"] else "answered",
+                    "gate_verdict": None,
+                    "action_result": {"answer": result["answer"], "sources": result["sources"],
+                                      "tool_trace": result["events"],
+                                      **({"reason": "Some requested information could not be verified by the tools."} if result["had_error"] else {})},
+                    "policy_citations": [source for source in result["sources"] if source.endswith(".md")]}
+        except Exception as error:
+            return {"task_id": get_task_id(question_task), "task": question_task,
+                    "outcome": "escalated_to_human", "gate_verdict": None,
+                    "action_result": {"reason": "The read-only tool assistant could not verify this request.",
+                                      "error_type": type(error).__name__}, "policy_citations": []}
     if mode == "enhanced":
         from storekeeper.advanced_retrieval import retrieve_policy_chunks
         try:
@@ -177,7 +193,7 @@ def answer_policy_task(
     elif mode == "baseline":
         policy_extracts = find_policy_context(question_task, ticket_text=ticket_text)
     else:
-        raise ValueError("POLICY_RETRIEVAL_MODE must be baseline or enhanced.")
+        raise ValueError("POLICY_RETRIEVAL_MODE must be baseline, enhanced or agentic.")
     structured_answerer = answer_model.with_structured_output(PolicyAnswer)
     policy_answer = structured_answerer.invoke(
         [

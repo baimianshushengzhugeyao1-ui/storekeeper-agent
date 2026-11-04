@@ -67,7 +67,7 @@ def create_live_preview(directory: Path | None = None, model=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=8766)
-    parser.add_argument('--rag', choices=['baseline', 'enhanced'], help='Override POLICY_RETRIEVAL_MODE for this preview.')
+    parser.add_argument('--rag', choices=['baseline', 'enhanced', 'agentic'], help='Override POLICY_RETRIEVAL_MODE for this preview.')
     arguments = parser.parse_args()
     if arguments.rag:
         os.environ['POLICY_RETRIEVAL_MODE'] = arguments.rag

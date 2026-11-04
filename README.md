@@ -41,6 +41,15 @@ BM25/向量双路召回、RRF 融合、LLM 证据筛选与原文引用核验，�
 会消耗模型API额度。默认仍为 baseline，可显式切换 enhanced；没有新增外部
 Embedding或重排服务。最终140项本地测试通过。
 
+## 模型选择外部工具
+
+新增真正的只读工具调用：模型通过 `bind_tools` 选择店铺规则检索和外部
+Frankfurter 汇率换算工具，Python 校验并执行，再通过 ToolMessage 回传。
+LangGraph 循环限制最多3次工具执行，订单操作仍走原审批流程。
+运行 `run_readonly_agent.cmd` 或 `uv run python scripts/run_tool_agent.py`。
+详情见 [工具设计与真实调用](docs/read-only-tool-agent.md)，
+[真实轨迹](evidence/advanced_rag/read_only_tool_agent.json)。
+
 ## 快速运行
 
 需要 Python 3.11+、[uv](https://docs.astral.sh/uv/) 与 Node.js/npm。
