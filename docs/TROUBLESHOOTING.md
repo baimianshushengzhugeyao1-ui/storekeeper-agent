@@ -1,5 +1,13 @@
 # Troubleshooting
 
+## English corpus misses Chinese questions or supplies unrelated context
+
+The original retriever embeds Chinese questions with an English-oriented default
+model and always returns three neighbours. The enhanced path translates the
+query, fuses lexical/vector retrieval and grades evidence before answering.
+Evidence failure escalates. Exact quotes establish source membership, not
+semantic truth; retain failures and compare regressions before changing defaults.
+
 Problems we hit and how we fixed them. Newest first. Format: symptom → cause → fix.
 
 Entries dated 2026-10-28 concern this local fork. The July entries preserve
@@ -235,3 +243,13 @@ was the `example.com` placeholder. UI-less apps should use
   granted nothing".
 - `shopify app config link` — the CLI's own list of your apps; if it can't see
   the app there, no deploy will either.
+# Local order discovery notes 2026-11-04
+
+- A broad `except Exception` around a tool can also catch LangGraph's interrupt.
+  `order_resolution.py` explicitly rethrows `GraphBubbleUp` before recording ordinary
+  tool errors, so asking the customer really checkpoints and pauses.
+- Windows sandbox temp folders can block SQLite test files. The successful test
+  run used the normal local test environment; this is not an application database bug.
+- Real model preflight returned HTTP402. Stop issuing further cases, retain the
+  blocked report and resume only after the configured account has usable credit.
+  `--replay` remains explicitly scripted; it does not verify model behavior.

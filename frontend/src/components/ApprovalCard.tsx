@@ -122,8 +122,8 @@ export function ApprovalCard({
           </button>
         </div>
         <p>
-          {typeof document !== 'undefined' && document.body.dataset.offlineDemo === 'true'
-            ? 'Offline demo: approval records a fixture action only. No real store or payment changes.'
+          {typeof document !== 'undefined' && (document.body.dataset.offlineDemo === 'true' || document.body.dataset.orderAgentPreview)
+            ? 'Fixture orders: approval records a simulated action only. No real store or payment changes.'
             : 'Approving executes a real write on your Shopify store. Rejecting makes no changes.'}
         </p>
       </div>

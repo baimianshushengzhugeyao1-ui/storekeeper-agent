@@ -63,6 +63,20 @@ LangGraph 循环限制最多3次工具执行，订单操作仍走原审批流程
 [设计与真实调用边界](docs/shop-catalog-skill.md)｜[官方Skill来源](skills/shop-catalog/vendor/source.json)｜[真实调用记录](evidence/advanced_rag/catalog_skill.json)。
 这是公开跨商家目录，不是本店库存或已授权订单；153项本地测试通过。
 
+## 客服链路新增订单查找 Agent
+
+在单个取消请求缺号时，模型可选按时间查单、读取详情、请求用户选择或绑定唯一订单。
+工具结果通过ToolMessage返回模型，确定订单后仍经过原规则核验与人工审批。
+React工作台新增候选选择与工具记录。不是多Agent协同，也没有真实Shopify订单源。
+
+运行`start_order_agent.cmd`使用真实DeepSeek与模拟订单（8768），
+或`start_order_agent_replay.cmd`使用明确标注的脚本演练（8769）。
+当前公开版173项测试通过，4个脚本API场景和浏览器选择/审批链路通过。
+真实DeepSeek预检返回HTTP402余额不足，尚未完成新模块真实模型验收。
+不得将脚本结果当LLM准确率或真实店铺效果。
+
+[实现与启动说明](docs/order-discovery-agent.md) · [本轮验证边界](evidence/order_agent/validation.json)
+
 ## 快速运行
 
 需要 Python 3.11+、[uv](https://docs.astral.sh/uv/) 与 Node.js/npm。

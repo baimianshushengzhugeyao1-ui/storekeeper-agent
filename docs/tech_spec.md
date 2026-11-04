@@ -1,5 +1,39 @@
 # As-built technical specification
 
+## Optional order discovery Agent
+
+`build_ticket_graph(order_agent_model=..., order_directory=...)` inserts the
+`resolve_order_agent` node only when explicitly configured with a simulated
+action client. `order_resolution.py` builds an inherited-checkpointer subgraph
+with model/tool turns, verified candidates and a customer-choice interrupt.
+The model can select four read/selection tools; it never receives cancel/refund
+tools. Success updates a copied task's reference and proceeds through the
+existing gate/approval path. Failure escalates with deterministic wording.
+API clarification payloads add optional `choices` and `resolver`; detail responses
+add `order_resolution`. Legacy interrupts still work. Selection is validated in
+the API and graph. `FixtureOrderDirectory` is a test customer binding, not login
+or production RBAC. See [order-discovery-agent.md](order-discovery-agent.md).
+
+## Read-only model-selected tools
+
+`tool_agent.py` exposes policy retrieval and fixed-host rate conversion via
+`bind_tools`. A bounded LangGraph loop executes allowlisted requests and returns
+ToolMessages. `POLICY_RETRIEVAL_MODE=agentic` uses it inside policy-question
+handling. Currency calculations use Decimal; errors cannot create order writes.
+See `read-only-tool-agent.md`. Tool requests are real function execution, unlike
+the upstream classifier's schema-only function-calling interface.
+
+## Optional enhanced policy retrieval (2026-11-04)
+
+`POLICY_RETRIEVAL_MODE=enhanced` routes policy questions through
+`advanced_retrieval.retrieve_policy_chunks`, a bounded LangGraph subgraph with
+query translation, BM25+dense RRF and LLM evidence grading. IDs and verbatim
+quotes are checked in Python. Trace data lives in task `action_result` and
+includes retrieval ranks, selected evidence, model usage and timings. Empty
+evidence/errors escalate; action gates keep their deterministic whole-doc path.
+The baseline remains the default. See `advanced-rag.md` for configuration,
+provenance, limits and evaluation commands.
+
 Local extension dated 2026-10-28, based on upstream snapshot
 `9c1d5644effac7aed10079d23fc2a9f3f2982b1a`. Local validation uses injected
 models and Shopify clients; upstream live-store history is not a local result.

@@ -1,7 +1,7 @@
 """State schemas for the ticket-handling graph."""
 
 import operator
-from typing import Annotated, Literal, TypedDict
+from typing import Annotated, Literal, NotRequired, TypedDict
 
 from storekeeper.domain import GateVerdict, ShopifyOrder, Task, TaskResult
 
@@ -36,6 +36,7 @@ class TicketState(TypedDict):
     ticket_outcome: TicketOutcome | None
     escalation_reason: str | None
     plan_conflict_reason: str | None
+    order_resolution: NotRequired[dict]
 
 
 class TicketTaskWorkerState(TypedDict):

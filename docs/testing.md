@@ -1,5 +1,14 @@
 # Testing
 
+## Enhanced retrieval checks (2026-11-04)
+
+`tests/test_advanced_retrieval.py` covers BM25 matching, RRF deduplication,
+invalid IDs/quotes, incomplete evidence, the bounded subgraph, and escalation
+without invoking the policy answerer. The local regression suite has 138 tests.
+The live four-variant runner is `scripts/evaluate_advanced_retrieval.py`; see
+`advanced-rag.md` for frozen datasets and metric boundaries. It requires explicit
+`--live` and consumes model API credit; unit tests do not make provider calls.
+
 The 2026-10-28 local extension is checked without model or Shopify calls.
 Upstream live-check instructions are retained below; they are not a record of
 live validation performed for this fork.
@@ -268,3 +277,16 @@ the scorer has seven offline regression tests for denominator/label errors.
 The full local suite now passes 131 tests. On Windows the restricted runner
 blocked asyncio's local socket-pair setup; the suite completed in 8.321 seconds
 when run with local networking permitted. No external model/store calls ran.
+# Order discovery extension validation 2026-11-04
+
+Run `python -m unittest discover -s tests -p test_order_agent.py -v` for scoped
+time searches, unique and ambiguous matches, graph restart, invalid selections,
+unknown write tools, model failures, budgets, policy denial and approval-before-write.
+The full suite contains 173 tests at this revision. Frontend uses `npm run build`
+and `npm run lint` (oxlint, not ESLint).
+
+`python -m scripts.evaluate_order_agent --replay` records four synthetic API
+scenarios with scripted model decisions. Without `--replay`, the script uses real
+DeepSeek and records an independent run. The first real preflight returned HTTP402;
+no cases passed a real-model acceptance run yet. Do not report scripted pass rates
+as model accuracy. Browser smoke screenshots are local scripted integration evidence.

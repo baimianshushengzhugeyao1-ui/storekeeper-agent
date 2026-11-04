@@ -93,7 +93,7 @@ class ClarificationApiTests(unittest.TestCase):
 
             self.assertEqual(
                 set(clarification),
-                {"interrupt_id", "kind", "task_id", "field", "question"},
+                {"interrupt_id", "kind", "task_id", "field", "question", "choices", "resolver"},
             )
             self.assertEqual(clarification["kind"], "clarification")
             self.assertEqual(clarification["task_id"], "task-1")

@@ -65,6 +65,8 @@ def build_ticket_graph(
     draft_model: BaseChatModel | None = None,
     answer_model: BaseChatModel | None = None,
     shopify_client: ShopifyClient | None = None,
+    order_agent_model=None,
+    order_directory=None,
 ) -> CompiledStateGraph:
     """Classify, clarify a missing order, validate, process tasks, then draft."""
     if draft_model is None:
@@ -121,7 +123,18 @@ def build_ticket_graph(
     ticket_builder.add_node("draft_reply", make_draft_reply_node(draft_model))
 
     ticket_builder.add_edge(START, "classify")
-    ticket_builder.add_edge("classify", "clarify_missing_order_reference")
+    if order_directory is not None:
+        if order_agent_model is None or not getattr(shopify_client, "is_simulated", False):
+            raise ValueError("Order discovery preview requires a model and an explicit simulated client.")
+        from storekeeper.order_resolution import make_order_resolution_node
+        ticket_builder.add_node("resolve_order_agent", make_order_resolution_node(order_agent_model, order_directory))
+        ticket_builder.add_edge("classify", "resolve_order_agent")
+        ticket_builder.add_conditional_edges("resolve_order_agent",
+            lambda state: "escalate_ticket" if state.get("order_resolution", {}).get("status") == "failed"
+            else "clarify_missing_order_reference",
+            ["escalate_ticket", "clarify_missing_order_reference"])
+    else:
+        ticket_builder.add_edge("classify", "clarify_missing_order_reference")
     ticket_builder.add_edge("clarify_missing_order_reference", "validate_task_plan")
     ticket_builder.add_conditional_edges(
         "validate_task_plan",

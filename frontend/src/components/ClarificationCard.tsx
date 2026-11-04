@@ -23,6 +23,7 @@ export function ClarificationCard({
   const orderReferenceId = `order-reference-${clarification.interrupt_id}`
   const helpId = `${orderReferenceId}-help`
   const errorId = `${orderReferenceId}-error`
+  const choices = clarification.choices ?? []
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -54,8 +55,23 @@ export function ClarificationCard({
       <h2 id={headingId}>{clarification.question}</h2>
       <p className="clarification-task">Request: {clarification.task_id}</p>
       <form className="clarification-form" onSubmit={handleSubmit} aria-busy={isSubmitting}>
-        <label htmlFor={orderReferenceId}>Order number</label>
-        <input
+        <label htmlFor={orderReferenceId}>{choices.length ? '请选择订单' : 'Order number'}</label>
+        {choices.length ? (
+          <select
+            id={orderReferenceId}
+            value={orderReference}
+            onChange={(event) => setOrderReference(event.target.value)}
+            disabled={isDisabled || isSubmitting}
+            required
+          >
+            <option value="">请选择要取消的订单</option>
+            {choices.map((order) => (
+              <option key={order.order_reference} value={order.order_reference}>
+                {order.order_reference} · {order.summary} · {order.amount} {order.currency} · {order.placed_at}
+              </option>
+            ))}
+          </select>
+        ) : <input
           id={orderReferenceId}
           type="text"
           value={orderReference}
@@ -66,9 +82,11 @@ export function ClarificationCard({
           disabled={isDisabled || isSubmitting}
           aria-describedby={`${helpId}${errorMessage ? ` ${errorId}` : ''}`}
           aria-required="true"
-        />
+        />}
         <p className="form-help" id={helpId}>
-          Enter the order number supplied by the customer: 1–10 digits, with an optional #.
+          {choices.length
+            ? '查询返回多个候选订单，请确认目标；选择订单不代表批准取消。'
+            : 'Enter the order number supplied by the customer: 1–10 digits, with an optional #.'}
         </p>
         {errorMessage ? (
           <div className="decision-error" id={errorId} role="alert">
@@ -86,7 +104,7 @@ export function ClarificationCard({
             type="submit"
             disabled={isDisabled || isSubmitting}
           >
-            {isSubmitting ? 'Continuing workflow…' : 'Submit order number'}
+            {isSubmitting ? 'Continuing…' : choices.length ? '确认目标订单' : 'Submit order number'}
           </button>
         </div>
       </form>

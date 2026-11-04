@@ -198,6 +198,12 @@ def clarify_ticket_endpoint(
         }
         if request_body.interrupt_id not in pending_ids:
             raise HTTPException(status_code=409, detail="This clarification is no longer pending on this ticket.")
+        pending = next(item for item in _get_pending_clarifications(state_snapshot)
+                       if item.interrupt_id == request_body.interrupt_id)
+        if pending.choices and request_body.order_reference not in {
+            item.order_reference for item in pending.choices
+        }:
+            raise HTTPException(status_code=422, detail="Choose one of this ticket's displayed orders.")
         ticket_graph.invoke(
             Command(resume={request_body.interrupt_id: {"order_reference": request_body.order_reference}}),
             _thread_config(ticket_id),
@@ -289,6 +295,7 @@ def _build_ticket_detail_response(
         reply_draft=state_values.get("reply_draft"),
         ticket_outcome=state_values.get("ticket_outcome"),
         escalation_reason=state_values.get("escalation_reason"),
+        order_resolution=state_values.get("order_resolution"),
     )
 
 

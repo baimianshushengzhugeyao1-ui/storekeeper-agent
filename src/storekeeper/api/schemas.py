@@ -99,12 +99,23 @@ class TicketSummaryResponse(BaseModel):
     status: TicketStatus
 
 
+class OrderChoiceResponse(BaseModel):
+    order_reference: str
+    placed_at: str
+    amount: str
+    currency: str
+    summary: str
+    fulfilled: bool
+
+
 class ClarificationPayloadResponse(BaseModel):
     interrupt_id: str
     kind: Literal["clarification"]
     task_id: str
     field: Literal["order_reference"]
     question: str
+    choices: list[OrderChoiceResponse] | None = None
+    resolver: Literal["order_agent"] | None = None
 
 
 class ClarificationHistoryResponse(BaseModel):
@@ -122,3 +133,4 @@ class TicketDetailResponse(TicketSummaryResponse):
     reply_draft: str | None
     ticket_outcome: TicketOutcome | None
     escalation_reason: str | None
+    order_resolution: dict[str, Any] | None = None

@@ -1072,3 +1072,24 @@ button {
     align-items: flex-start;
   }
 }
+/* Keep model tool evidence readable in the operator audit trail. */
+.order-discovery-card pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+}
+
+.order-agent-notice {
+  padding: 12px 18px;
+  background: #fff3cd;
+  color: #684f00;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.clarification-form select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  font: inherit;
+}

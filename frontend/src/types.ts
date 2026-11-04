@@ -80,6 +80,17 @@ export interface ClarificationPayload {
   task_id: string
   field: 'order_reference'
   question: string
+  choices?: OrderChoice[] | null
+  resolver?: 'order_agent' | null
+}
+
+export interface OrderChoice {
+  order_reference: string
+  placed_at: string
+  amount: string
+  currency: string
+  summary: string
+  fulfilled: boolean
 }
 
 export interface ClarificationHistoryEntry {
@@ -97,4 +108,9 @@ export interface TicketDetailResponse extends TicketSummary {
   reply_draft: string | null
   ticket_outcome: TicketOutcome | null
   escalation_reason: string | null
+  order_resolution?: {
+    status: string
+    selected_reference?: string | null
+    events: Array<{ kind: string; name?: string; arguments?: unknown; result?: unknown }>
+  } | null
 }

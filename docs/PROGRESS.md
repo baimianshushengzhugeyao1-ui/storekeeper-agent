@@ -1,5 +1,41 @@
 # Progress
 
+## 2026-11-04: model-selected order discovery before cancellation
+
+Added an opt-in customer-scoped fixture order Agent subgraph between classification
+and the existing guarded workflow. It selects time search/detail/clarification/
+binding tools, persists pauses via the parent SQLite saver, and requires customer
+selection for multiple matches. React now shows choices and completed tool traces.
+20 new tests, 173 total pass; four scripted API scenarios pass. Real DeepSeek
+acceptance was attempted but blocked by HTTP402; not a live-store/model success claim.
+See [implementation and boundaries](order-discovery-agent.md).
+
+## 2026-11-04: reviewed external Shop Skill
+
+Added a separate catalog toolset: the model loads reviewed read-only sections of
+Shopify's pinned Shop Skill, then invokes the official CLI to search public real
+merchant products. Validate price/currency/selected availability and keep exact
+URLs. Original source/license retained. No private inventory, order or purchase
+access. Real model run selected both Skill loader and catalog tool successfully.
+
+## 2026-11-04: real model-selected external tools
+
+Added a bounded read-only LangGraph tool loop with a policy retrieval tool and
+external Frankfurter reference conversion. The real model selected both tools
+for a combined query, received ToolMessages and answered from the results.
+`--rag agentic` enables this in policy-question handling; the direct CLI also
+supports currency-only queries. Order writes stay under the original rules.
+See `read-only-tool-agent.md` for tool budget, validation and limits.
+
+## 2026-11-04: opt-in multilingual evidence retrieval
+
+Added a LangGraph rewrite/retrieve/grade subgraph: Chinese search translation,
+BM25+dense RRF candidates, structured evidence selection, and exact quote/ID
+checks. Empty or failed evidence retrieval escalates before policy answering.
+Baseline stays selectable. Additional synthetic labels are frozen before live
+comparison. See `advanced-rag.md`; production and final-answer quality are not
+established by retrieval scores.
+
 Feature log: what's built, what's next. Details live in
 [tech_spec.md](tech_spec.md) and [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 

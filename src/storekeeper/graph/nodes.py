@@ -1,7 +1,8 @@
 """Node functions and routing rules for the ticket graph.
 
-Routing decisions live in plain Python route functions. The LLM classifies
-and drafts; it never chooses which node runs next.
+Guarded action routing here stays in Python. The optional order-discovery
+subgraph in order_resolution.py separately lets a model choose read/selection
+tools, then returns to these mandatory rule and approval steps.
 """
 
 import json
@@ -254,7 +255,11 @@ def make_draft_reply_node(draft_model: BaseChatModel) -> Callable:
                 f"\n\nStore policy for reference:\n{format_policy_extracts(policy_extracts)}"
             )
 
-        if any(result["outcome"] == "submitted" for result in ordered_task_results):
+        if state.get("order_resolution", {}).get("status") == "failed":
+            # A failed resolver must not trigger another paid model call merely
+            # to restate the failure (notably after quota/network errors).
+            response = AIMessage(content="暂时无法核实要处理的订单，已转人工检查；未执行取消或退款。")
+        elif any(result["outcome"] == "submitted" for result in ordered_task_results):
             response = AIMessage(content=submission_receipt(ordered_task_results))
         else:
             response = draft_model.invoke(

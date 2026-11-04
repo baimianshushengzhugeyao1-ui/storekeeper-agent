@@ -125,7 +125,9 @@ export function TicketDetail({
         <div className="ticket-title-row">
           <h1>
             {ticket.status === 'waiting_for_customer'
-              ? 'Order number needed'
+              ? ticket.pending_clarifications.some((item) => item.choices?.length)
+                ? '请选择目标订单'
+                : 'Order number needed'
               : ticket.pending_approvals.length === 1
                 ? getApprovalActionHeadline(ticket.pending_approvals[0])
                 : ticket.pending_approvals.length > 1
@@ -153,6 +155,24 @@ export function TicketDetail({
         <h2 className="card-label">Customer message</h2>
         <p>{ticket.ticket_text}</p>
       </section>
+
+      {ticket.order_resolution && ticket.order_resolution.status !== 'skipped' ? (
+        <section className="content-card order-discovery-card">
+          <h2 className="card-label">订单查找记录</h2>
+          <p>状态：{ticket.order_resolution.status} · 目标订单：{ticket.order_resolution.selected_reference ?? '尚未确定'}</p>
+          <ol>
+            {ticket.order_resolution.events.filter((event) => event.kind === 'tool').map((event, index) => (
+              <li key={index}>
+                <details>
+                  <summary><code>{event.name}</code></summary>
+                  <pre>{JSON.stringify({ input: event.arguments, output: event.result }, null, 2)}</pre>
+                </details>
+              </li>
+            ))}
+          </ol>
+          <p>这里只查找和绑定订单，取消操作仍须通过规则检查与人工审批。</p>
+        </section>
+      ) : null}
 
       {ticket.clarification_history.length > 0 ? (
         <section className="content-card clarification-history-card">

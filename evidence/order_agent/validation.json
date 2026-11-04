@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-04",
+  "local_source_test_count": 177,
+  "published_test_count": 173,
+  "difference": "Four local tests for an unfinished 500-query retrieval dataset are not part of this slice.",
+  "scripted_api_cases_passed": 4,
+  "scripted_browser_flow": "candidate selection -> approval -> simulated submission",
+  "real_model_acceptance": {
+    "status": "blocked",
+    "http_status": 402,
+    "passed_cases": 0
+  },
+  "data": "Synthetic customer/order fixtures only. No production auth or live Shopify order access.",
+  "not_claimed": [
+    "LLM task completion rate",
+    "production deployment",
+    "live Shopify cancellation",
+    "independent user authorship"
+  ]
+}

@@ -172,7 +172,11 @@ function App() {
         </div>
         <div className="header-status">
           <span className="store-label">
-            {typeof document !== 'undefined' && document.body.dataset.offlineDemo === 'true'
+            {typeof document !== 'undefined' && document.body.dataset.orderAgentPreview
+              ? document.body.dataset.orderAgentPreview === 'replay'
+                ? 'Scripted replay · fixture orders'
+                : 'Live model · fixture orders'
+              : typeof document !== 'undefined' && document.body.dataset.offlineDemo === 'true'
               ? 'Offline demo'
               : 'Development store'}
           </span>

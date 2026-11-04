@@ -125,3 +125,12 @@ For v2 traces, open a ticket with independent requests. After
 task through `Send`. Several `await_approval` nodes may pause in the same turn.
 Each resume addresses one interrupt id; `draft_reply` appears only after every
 branch has completed, then composes the ordered results once.
+# Local order discovery graph extension 2026-11-04
+
+The opt-in fixture preview adds this nested shape:
+`classify -> resolve_order_agent(agent -> tools -> agent ...) -> clarification -> validate -> process -> draft`.
+Inside `request_order_reference`, customer information pauses with the existing
+clarification kind; `await_approval` remains a separate later approval interrupt.
+The local preview disables external LangSmith export. Inspect `order_resolution.events`
+in API responses and the console's order lookup history instead. This is not a claim
+that the new extension has been observed in a production LangSmith deployment.
