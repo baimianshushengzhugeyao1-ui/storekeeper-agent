@@ -50,6 +50,19 @@ LangGraph 循环限制最多3次工具执行，订单操作仍走原审批流程
 详情见 [工具设计与真实调用](docs/read-only-tool-agent.md)，
 [真实轨迹](evidence/advanced_rag/read_only_tool_agent.json)。
 
+## 官方 Shop Skill 只读商品查询
+
+模型可以加载 Shopify 官方 Shop Skill 的经审查只读部分，再选择商品搜索工具，
+通过官方 CLI/MCP 查询真实公开商家目录。后端检查预算、币种、返回规格可售状态，
+保留商家和完整商品链接。无登录、购物车、支付和私有订单能力。
+
+运行 `run_shop_skill.cmd`，或先运行 `uv run python scripts/prepare_shop_skill.py`，
+再运行 `uv run python scripts/run_catalog_skill.py`。需要兼容版本的 Node.js；
+不在PATH时可在本机.env设置STOREKEEPER_NODE。会消耗模型API额度。
+
+[设计与真实调用边界](docs/shop-catalog-skill.md)｜[官方Skill来源](skills/shop-catalog/vendor/source.json)｜[真实调用记录](evidence/advanced_rag/catalog_skill.json)。
+这是公开跨商家目录，不是本店库存或已授权订单；153项本地测试通过。
+
 ## 快速运行
 
 需要 Python 3.11+、[uv](https://docs.astral.sh/uv/) 与 Node.js/npm。

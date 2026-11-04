@@ -1,0 +1,9 @@
+{
+  "package": "@shopify/shop",
+  "version": "1.2.0",
+  "url": "https://registry.npmjs.org/@shopify/shop/-/shop-1.2.0.tgz",
+  "source_repository": "https://github.com/Shopify/shop",
+  "archive_sha256": "40e7df83ade1e44c9a054483a6f905ad76d4d16ba2546d0a680b0153456eec75",
+  "skill_sha256": "6c0d304341f5f1c45a7419a037a4a832a8c387b3022685023179fab722d9a85c",
+  "scope": "Official skill snapshot; project executes only public catalog search. No login/cart/checkout/order tools."
+}
