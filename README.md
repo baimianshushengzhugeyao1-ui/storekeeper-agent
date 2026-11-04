@@ -71,9 +71,10 @@ React工作台新增候选选择与工具记录。不是多Agent协同，也没�
 
 运行`start_order_agent.cmd`使用真实DeepSeek与模拟订单（8768），
 或`start_order_agent_replay.cmd`使用明确标注的脚本演练（8769）。
-当前公开版173项测试通过，4个脚本API场景和浏览器选择/审批链路通过。
-真实DeepSeek预检返回HTTP402余额不足，尚未完成新模块真实模型验收。
-不得将脚本结果当LLM准确率或真实店铺效果。
+当前公开版176项程序测试通过。额度恢复后，真实DeepSeek首轮3/4，修复文字追问未触发工具的
+问题后，单例复测1/1及相同四例回归4/4。最终一轮15次API调用、16376 Token。
+候选和订单操作仍为模拟数据，四例均在审批前零写入。不是未见测试集准确率或真实店铺效果。
+[首轮失败及修复记录](docs/order-agent-live-results.md) · [真实回归原始记录](evidence/order_agent/live_final_regression.json)
 
 [实现与启动说明](docs/order-discovery-agent.md) · [本轮验证边界](evidence/order_agent/validation.json)
 

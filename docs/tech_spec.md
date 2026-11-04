@@ -14,6 +14,13 @@ add `order_resolution`. Legacy interrupts still work. Selection is validated in
 the API and graph. `FixtureOrderDirectory` is a test customer binding, not login
 or production RBAC. See [order-discovery-agent.md](order-discovery-agent.md).
 
+The discovery binding now requires a tool request (`tool_choice=required`),
+without forcing which tool to choose. The live model disables thinking mode.
+Runtime still rejects text-only output, malformed/parallel calls and unknown
+tools. This fixes a real missing-context failure; it is not a fixed tool sequence.
+`order_agent_evaluation.py` verifies actual tool traces, time ranges and choices
+and accounts API usage without recording prompts or hidden reasoning.
+
 ## Read-only model-selected tools
 
 `tool_agent.py` exposes policy retrieval and fixed-host rate conversion via

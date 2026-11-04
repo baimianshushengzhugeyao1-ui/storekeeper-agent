@@ -176,7 +176,10 @@ You have at most 6 executed tool calls and 8 model turns.
 
 def build_order_resolution_graph(model, directory: FixtureOrderDirectory):
     tools = {t.name: t for t in make_order_tools(directory)}
-    bound = model.bind_tools(list(tools.values()), tool_choice="auto", parallel_tool_calls=False)
+    # This node cannot perform a user-visible action with prose alone. Require
+    # a tool request, while leaving the tool and its arguments to the model.
+    # The configured live model disables thinking mode, as required by DeepSeek.
+    bound = model.bind_tools(list(tools.values()), tool_choice="required", parallel_tool_calls=False)
 
     def agent(state: ResolutionState):
         if state.get("customer_scope") != directory.customer_id:
@@ -192,6 +195,7 @@ def build_order_resolution_graph(model, directory: FixtureOrderDirectory):
                     "events": [*state["events"], {"kind": "model_error", "error_type": type(error).__name__}]}
         calls = getattr(message, "tool_calls", [])
         events = [*state["events"], {"kind": "model", "tool_calls": calls,
+                                   "response_text": str(message.content)[:2000],
                                    "usage": getattr(message, "usage_metadata", None) or {}}]
         update = {"messages": [*state["messages"], message], "events": events,
                   "model_turns": state["model_turns"] + 1}

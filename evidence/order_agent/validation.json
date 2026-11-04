@@ -1,14 +1,28 @@
 {
   "date": "2026-11-04",
-  "local_source_test_count": 177,
-  "published_test_count": 173,
+  "local_source_test_count": 180,
+  "published_test_count": 176,
   "difference": "Four local tests for an unfinished 500-query retrieval dataset are not part of this slice.",
   "scripted_api_cases_passed": 4,
   "scripted_browser_flow": "candidate selection -> approval -> simulated submission",
   "real_model_acceptance": {
-    "status": "blocked",
-    "http_status": 402,
-    "passed_cases": 0
+    "status": "complete",
+    "first_attempt": {
+      "passed": 3,
+      "total": 4,
+      "report": "live_first_attempt.json"
+    },
+    "targeted_recovery": {
+      "passed": 1,
+      "total": 1,
+      "report": "live_missing_recovery.json"
+    },
+    "final_regression": {
+      "passed": 4,
+      "total": 4,
+      "report": "live_final_regression.json"
+    },
+    "scope": "same synthetic development cases after a protocol fix; not unseen accuracy or live Shopify"
   },
   "data": "Synthetic customer/order fixtures only. No production auth or live Shopify order access.",
   "not_claimed": [
@@ -16,5 +30,17 @@
     "production deployment",
     "live Shopify cancellation",
     "independent user authorship"
-  ]
+  ],
+  "final_run_usage": {
+    "scope": "all recorded model calls, including preflight, classifier, discovery and drafter",
+    "calls": 15,
+    "successful_calls": 15,
+    "input_tokens": 15520,
+    "output_tokens": 856,
+    "total_tokens": 16376
+  },
+  "earlier_preflight": {
+    "http_status": 402,
+    "note": "Credit was later restored; first blocked report retained locally."
+  }
 }

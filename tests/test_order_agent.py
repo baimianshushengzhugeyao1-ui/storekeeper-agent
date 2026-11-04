@@ -36,6 +36,7 @@ class SequenceModel:
 
     def bind_tools(self, tools, **kwargs):
         self.names = [t.name for t in tools]
+        self.bind_settings = kwargs
         return self
 
     def invoke(self, messages):
@@ -254,8 +255,11 @@ class OrderAgentIntegrationTests(unittest.TestCase):
             self.assertEqual(self.client.write_calls, [])
 
     def test_text_claim_without_selection_tool_is_not_a_success(self):
-        with self.api(SequenceModel([])) as (http, _):
+        model = SequenceModel([])
+        with self.api(model) as (http, _):
             ticket = self.create(http)
+            self.assertEqual(model.bind_settings["tool_choice"], "required")
+            self.assertFalse(model.bind_settings["parallel_tool_calls"])
             self.assertEqual(ticket["ticket_outcome"], "escalated_to_human")
             self.assertEqual(ticket["pending_approvals"], [])
             self.assertIsNone(ticket["tasks"][0]["order_reference"])

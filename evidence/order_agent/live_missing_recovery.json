@@ -1,0 +1,423 @@
+{
+  "mode": "real_deepseek",
+  "status": "complete",
+  "cases": [
+    {
+      "id": "missing",
+      "question": "帮我取消订单。",
+      "http_status": 201,
+      "initial": {
+        "ticket_id": "missing",
+        "ticket_text": "帮我取消订单。",
+        "created_at": "2026-11-04T13:25:14.547403Z",
+        "status": "waiting_for_customer",
+        "pending_approvals": [],
+        "pending_clarifications": [
+          {
+            "interrupt_id": "f41cc7e51c79f6294c41ffea2f1358fc",
+            "kind": "clarification",
+            "task_id": "task-1",
+            "field": "order_reference",
+            "question": "请选择要取消的订单；没有匹配项时请提供订单号。",
+            "choices": [],
+            "resolver": "order_agent"
+          }
+        ],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": null,
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": null
+      },
+      "expected": {
+        "id": "missing",
+        "question": "帮我取消订单。",
+        "status": "waiting_for_customer",
+        "answer": "#2036",
+        "reference": "#2036"
+      },
+      "continued_status": 200,
+      "continued": {
+        "ticket_id": "missing",
+        "ticket_text": "帮我取消订单。",
+        "created_at": "2026-11-04T13:25:14.547403Z",
+        "status": "pending_approval",
+        "pending_approvals": [
+          {
+            "interrupt_id": "38191acae3a67ad18ce767ae3af967b4",
+            "task_id": "task-1",
+            "question": "Approve this action?",
+            "action": "cancel_order",
+            "order": "#2036",
+            "requested_reference": "#2036",
+            "amount": "79.90 USD",
+            "gate_rule": "cancel_order_unfulfilled",
+            "gate_reason": "The order is unfulfilled and can be cancelled.",
+            "flags": [],
+            "current_shipping_address": null,
+            "new_shipping_address": null
+          }
+        ],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#2036"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "request_order_reference",
+                  "args": {
+                    "reason": "请提供要取消的订单号，或说明下单时间（例如“昨天下午”），以便我查找对应订单。"
+                  },
+                  "id": "call_00_5FYQhGEZVA9VmWyoIXkD0584",
+                  "type": "tool_call"
+                }
+              ],
+              "response_text": "",
+              "usage": {
+                "input_tokens": 886,
+                "output_tokens": 57,
+                "total_tokens": 943,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "request_order_reference",
+              "arguments": {
+                "reason": "请提供要取消的订单号，或说明下单时间（例如“昨天下午”），以便我查找对应订单。"
+              },
+              "result": {
+                "ok": true,
+                "customer_selected_reference": "#2036",
+                "order": {
+                  "order_reference": "#2036",
+                  "placed_at": "2026-11-03T13:30:00+08:00",
+                  "amount": "79.90",
+                  "currency": "USD",
+                  "summary": "无线耳机",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_czzKLj03Z1IAdQFlYjbB3957",
+                  "type": "tool_call"
+                }
+              ],
+              "response_text": "",
+              "usage": {
+                "input_tokens": 1036,
+                "output_tokens": 36,
+                "total_tokens": 1072,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2036",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2036",
+          "customer_selected_reference": "#2036",
+          "reason": null
+        }
+      },
+      "checks": {
+        "initial_status": true,
+        "pending_approval": true,
+        "verified_binding": true,
+        "correct_task": true,
+        "selection_tool_executed": true,
+        "no_write_tool": true,
+        "choice_set": true,
+        "customer_choice_recorded": true,
+        "clarification_tool_executed": true,
+        "no_invented_time_search": true
+      },
+      "writes_before_approval": 0,
+      "approved_status": 200,
+      "approved": {
+        "ticket_id": "missing",
+        "ticket_text": "帮我取消订单。",
+        "created_at": "2026-11-04T13:25:14.547403Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#2036"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#2036",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.9
+            },
+            "outcome": "submitted",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": {
+              "action": "cancel_order",
+              "shopify_job_id": "demo-job-1",
+              "operation_status": "submitted",
+              "simulated": true,
+              "job_reported_done": true,
+              "refund_status": "unverified",
+              "summary": "Shopify accepted the cancellation request. Cancellation completion and payment settlement have not been verified."
+            },
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "TEST ORDERS (OFFLINE DEMO): No real order or payment was changed.\n\nOrder #2036: cancellation request submitted. Cancellation completion and refund settlement have not been verified; please await confirmation.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "request_order_reference",
+                  "args": {
+                    "reason": "请提供要取消的订单号，或说明下单时间（例如“昨天下午”），以便我查找对应订单。"
+                  },
+                  "id": "call_00_5FYQhGEZVA9VmWyoIXkD0584",
+                  "type": "tool_call"
+                }
+              ],
+              "response_text": "",
+              "usage": {
+                "input_tokens": 886,
+                "output_tokens": 57,
+                "total_tokens": 943,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "request_order_reference",
+              "arguments": {
+                "reason": "请提供要取消的订单号，或说明下单时间（例如“昨天下午”），以便我查找对应订单。"
+              },
+              "result": {
+                "ok": true,
+                "customer_selected_reference": "#2036",
+                "order": {
+                  "order_reference": "#2036",
+                  "placed_at": "2026-11-03T13:30:00+08:00",
+                  "amount": "79.90",
+                  "currency": "USD",
+                  "summary": "无线耳机",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_czzKLj03Z1IAdQFlYjbB3957",
+                  "type": "tool_call"
+                }
+              ],
+              "response_text": "",
+              "usage": {
+                "input_tokens": 1036,
+                "output_tokens": 36,
+                "total_tokens": 1072,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2036",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2036",
+          "customer_selected_reference": "#2036",
+          "reason": null
+        }
+      },
+      "automated_flow_seconds": 6.5893,
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "src/storekeeper/order_resolution.py": "c96331a27be047c39a98799ab34debeb0ac156ff1e45e973f4d6686af51bbae4",
+    "src/storekeeper/order_agent_fixtures.py": "40d338785e137830080ca2d50deea4fe5d1850135fdea512d57ee5a44c317777",
+    "scripts/evaluate_order_agent.py": "b609232df0a8f71aede2774defe1ccdcc77debe0fecd779cc270285f35cf29f9"
+  },
+  "scope": "four synthetic development scenarios; regression, not unseen test accuracy",
+  "preflight": {
+    "usage": {
+      "input_tokens": 9,
+      "output_tokens": 1,
+      "total_tokens": 10,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    },
+    "model": "deepseek-flash"
+  },
+  "model_usage_summary": {
+    "scope": "all recorded model calls, including preflight, classifier, discovery and drafter",
+    "calls": 4,
+    "successful_calls": 4,
+    "input_tokens": 3217,
+    "output_tokens": 157,
+    "total_tokens": 3374
+  },
+  "model_calls": [
+    {
+      "status": "ok",
+      "seconds": 7.7222,
+      "usage": {
+        "input_tokens": 9,
+        "output_tokens": 1,
+        "total_tokens": 10,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {}
+      }
+    },
+    {
+      "status": "ok",
+      "seconds": 2.9524,
+      "usage": {
+        "input_tokens": 1286,
+        "output_tokens": 63,
+        "total_tokens": 1349,
+        "input_token_details": {
+          "cache_read": 1152
+        },
+        "output_token_details": {}
+      }
+    },
+    {
+      "status": "ok",
+      "seconds": 1.7843,
+      "usage": {
+        "input_tokens": 886,
+        "output_tokens": 57,
+        "total_tokens": 943,
+        "input_token_details": {
+          "cache_read": 640
+        },
+        "output_token_details": {}
+      }
+    },
+    {
+      "status": "ok",
+      "seconds": 1.6096,
+      "usage": {
+        "input_tokens": 1036,
+        "output_tokens": 36,
+        "total_tokens": 1072,
+        "input_token_details": {
+          "cache_read": 896
+        },
+        "output_token_details": {}
+      }
+    }
+  ],
+  "passed": 1,
+  "total": 1
+}

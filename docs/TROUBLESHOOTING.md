@@ -245,6 +245,12 @@ was the `example.com` placeholder. UI-less apps should use
   the app there, no deploy will either.
 # Local order discovery notes 2026-11-04
 
+- The first real run failed the no-time input: the model asked a question as
+  plain text with empty tool_calls, so the graph had no clarification interrupt.
+  Bind with tool_choice=required in non-thinking mode; the model still chooses
+  the tool and arguments. Keep the original3/4 report; targeted1/1 and final4/4
+  are separate regression runs, not replacements for the first result.
+
 - A broad `except Exception` around a tool can also catch LangGraph's interrupt.
   `order_resolution.py` explicitly rethrows `GraphBubbleUp` before recording ordinary
   tool errors, so asking the customer really checkpoints and pauses.

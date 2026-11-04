@@ -282,11 +282,14 @@ when run with local networking permitted. No external model/store calls ran.
 Run `python -m unittest discover -s tests -p test_order_agent.py -v` for scoped
 time searches, unique and ambiguous matches, graph restart, invalid selections,
 unknown write tools, model failures, budgets, policy denial and approval-before-write.
-The full suite contains 173 tests at this revision. Frontend uses `npm run build`
+The full local suite now contains 176 tests, including three additional scoring/
+accounting checks. Frontend uses `npm run build`
 and `npm run lint` (oxlint, not ESLint).
 
 `python -m scripts.evaluate_order_agent --replay` records four synthetic API
 scenarios with scripted model decisions. Without `--replay`, the script uses real
-DeepSeek and records an independent run. The first real preflight returned HTTP402;
-no cases passed a real-model acceptance run yet. Do not report scripted pass rates
-as model accuracy. Browser smoke screenshots are local scripted integration evidence.
+DeepSeek and records an independent run. After the first HTTP402 block, credit
+was restored. The first live run scored3/4; after a tool-protocol fix, the same
+four development cases scored4/4. The new scorer also checks tool execution,
+time windows and customer choices. Do not report this as unseen/production accuracy.
+Browser screenshots from the prior phase remain scripted integration evidence.

@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-11-04: real order Agent acceptance and tool protocol fix
+
+Credit restored: first real-model run passed3/4; missing-context input produced
+only text instead of a clarification tool call. Require a tool request while
+letting the model select the tool/arguments, then rechecked the failing case and
+all four synthetic scenarios (4/4). Keep all reports; these are development
+regressions. Added strict tool/time/choice checks and callback usage accounting.
+176 published tests pass. No real Shopify orders or writes were involved.
+
 ## 2026-11-04: model-selected order discovery before cancellation
 
 Added an opt-in customer-scoped fixture order Agent subgraph between classification

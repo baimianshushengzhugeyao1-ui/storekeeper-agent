@@ -1,0 +1,1279 @@
+{
+  "mode": "real_deepseek",
+  "status": "complete",
+  "cases": [
+    {
+      "id": "unique",
+      "question": "帮我取消昨天下午13点到14点下的订单。",
+      "http_status": 201,
+      "initial": {
+        "ticket_id": "unique",
+        "ticket_text": "帮我取消昨天下午13点到14点下的订单。",
+        "created_at": "2026-11-04T13:17:09.527930Z",
+        "status": "pending_approval",
+        "pending_approvals": [
+          {
+            "interrupt_id": "56de578607f8d646a0ec7297cad08095",
+            "task_id": "task-1",
+            "question": "Approve this action?",
+            "action": "cancel_order",
+            "order": "#2036",
+            "requested_reference": "#2036",
+            "amount": "79.90 USD",
+            "gate_rule": "cancel_order_unfulfilled",
+            "gate_reason": "The order is unfulfilled and can be cancelled.",
+            "flags": [],
+            "current_shipping_address": null,
+            "new_shipping_address": null
+          }
+        ],
+        "pending_clarifications": [],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "search_orders_by_time",
+                  "args": {
+                    "start_time": "2026-11-03T13:00:00+08:00",
+                    "end_time": "2026-11-03T14:00:00+08:00"
+                  },
+                  "id": "call_00_fgBgpantDadO6WnzdO5W5813",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 888,
+                "output_tokens": 107,
+                "total_tokens": 995,
+                "input_token_details": {
+                  "cache_read": 0
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "search_orders_by_time",
+              "arguments": {
+                "start_time": "2026-11-03T13:00:00+08:00",
+                "end_time": "2026-11-03T14:00:00+08:00"
+              },
+              "result": {
+                "ok": true,
+                "orders": [
+                  {
+                    "order_reference": "#2036",
+                    "placed_at": "2026-11-03T13:30:00+08:00",
+                    "amount": "79.90",
+                    "currency": "USD",
+                    "summary": "无线耳机",
+                    "fulfilled": false
+                  }
+                ],
+                "match_count": 1,
+                "truncated": false,
+                "scope": "server-bound fixture customer"
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "get_order_details",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_x0PUxq6KC4N6eGCnEhyS5219",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1098,
+                "output_tokens": 53,
+                "total_tokens": 1151,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "get_order_details",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "order": {
+                  "order_reference": "#2036",
+                  "placed_at": "2026-11-03T13:30:00+08:00",
+                  "amount": "79.90",
+                  "currency": "USD",
+                  "summary": "无线耳机",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_3zkw4YqotwE2NYVqIR707113",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1228,
+                "output_tokens": 58,
+                "total_tokens": 1286,
+                "input_token_details": {
+                  "cache_read": 1024
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2036",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2036",
+          "customer_selected_reference": null,
+          "reason": null
+        }
+      },
+      "expected": {
+        "id": "unique",
+        "question": "帮我取消昨天下午13点到14点下的订单。",
+        "status": "pending_approval",
+        "reference": "#2036"
+      },
+      "writes_before_approval": 0,
+      "approved_status": 200,
+      "approved": {
+        "ticket_id": "unique",
+        "ticket_text": "帮我取消昨天下午13点到14点下的订单。",
+        "created_at": "2026-11-04T13:17:09.527930Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#2036",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.9
+            },
+            "outcome": "submitted",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": {
+              "action": "cancel_order",
+              "shopify_job_id": "demo-job-1",
+              "operation_status": "submitted",
+              "simulated": true,
+              "job_reported_done": true,
+              "refund_status": "unverified",
+              "summary": "Shopify accepted the cancellation request. Cancellation completion and payment settlement have not been verified."
+            },
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "TEST ORDERS (OFFLINE DEMO): No real order or payment was changed.\n\nOrder #2036: cancellation request submitted. Cancellation completion and refund settlement have not been verified; please await confirmation.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "search_orders_by_time",
+                  "args": {
+                    "start_time": "2026-11-03T13:00:00+08:00",
+                    "end_time": "2026-11-03T14:00:00+08:00"
+                  },
+                  "id": "call_00_fgBgpantDadO6WnzdO5W5813",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 888,
+                "output_tokens": 107,
+                "total_tokens": 995,
+                "input_token_details": {
+                  "cache_read": 0
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "search_orders_by_time",
+              "arguments": {
+                "start_time": "2026-11-03T13:00:00+08:00",
+                "end_time": "2026-11-03T14:00:00+08:00"
+              },
+              "result": {
+                "ok": true,
+                "orders": [
+                  {
+                    "order_reference": "#2036",
+                    "placed_at": "2026-11-03T13:30:00+08:00",
+                    "amount": "79.90",
+                    "currency": "USD",
+                    "summary": "无线耳机",
+                    "fulfilled": false
+                  }
+                ],
+                "match_count": 1,
+                "truncated": false,
+                "scope": "server-bound fixture customer"
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "get_order_details",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_x0PUxq6KC4N6eGCnEhyS5219",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1098,
+                "output_tokens": 53,
+                "total_tokens": 1151,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "get_order_details",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "order": {
+                  "order_reference": "#2036",
+                  "placed_at": "2026-11-03T13:30:00+08:00",
+                  "amount": "79.90",
+                  "currency": "USD",
+                  "summary": "无线耳机",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_3zkw4YqotwE2NYVqIR707113",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1228,
+                "output_tokens": 58,
+                "total_tokens": 1286,
+                "input_token_details": {
+                  "cache_read": 1024
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2036",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2036",
+          "customer_selected_reference": null,
+          "reason": null
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "multiple",
+      "question": "帮我取消昨天下午下的那个订单。",
+      "http_status": 201,
+      "initial": {
+        "ticket_id": "multiple",
+        "ticket_text": "帮我取消昨天下午下的那个订单。",
+        "created_at": "2026-11-04T13:17:18.653530Z",
+        "status": "waiting_for_customer",
+        "pending_approvals": [],
+        "pending_clarifications": [
+          {
+            "interrupt_id": "230f311491b8bfe2d4ad736e94635caa",
+            "kind": "clarification",
+            "task_id": "task-1",
+            "field": "order_reference",
+            "question": "请选择要取消的订单；没有匹配项时请提供订单号。",
+            "choices": [
+              {
+                "order_reference": "#2036",
+                "placed_at": "2026-11-03T13:30:00+08:00",
+                "amount": "79.90",
+                "currency": "USD",
+                "summary": "无线耳机",
+                "fulfilled": false
+              },
+              {
+                "order_reference": "#2037",
+                "placed_at": "2026-11-03T16:20:00+08:00",
+                "amount": "39.90",
+                "currency": "USD",
+                "summary": "无线鼠标",
+                "fulfilled": false
+              }
+            ],
+            "resolver": "order_agent"
+          }
+        ],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": null,
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": null
+      },
+      "expected": {
+        "id": "multiple",
+        "question": "帮我取消昨天下午下的那个订单。",
+        "status": "waiting_for_customer",
+        "answer": "#2037",
+        "reference": "#2037"
+      },
+      "continued_status": 200,
+      "continued": {
+        "ticket_id": "multiple",
+        "ticket_text": "帮我取消昨天下午下的那个订单。",
+        "created_at": "2026-11-04T13:17:18.653530Z",
+        "status": "pending_approval",
+        "pending_approvals": [
+          {
+            "interrupt_id": "f0126a6a492199dfacff8afea2b59d7d",
+            "task_id": "task-1",
+            "question": "Approve this action?",
+            "action": "cancel_order",
+            "order": "#2037",
+            "requested_reference": "#2037",
+            "amount": "39.90 USD",
+            "gate_rule": "cancel_order_unfulfilled",
+            "gate_reason": "The order is unfulfilled and can be cancelled.",
+            "flags": [],
+            "current_shipping_address": null,
+            "new_shipping_address": null
+          }
+        ],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#2037"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2037",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "search_orders_by_time",
+                  "args": {
+                    "start_time": "2026-11-03T12:00:00+08:00",
+                    "end_time": "2026-11-03T18:00:00+08:00"
+                  },
+                  "id": "call_00_8baSo9Ni6ElttiOLsV769294",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 885,
+                "output_tokens": 97,
+                "total_tokens": 982,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "search_orders_by_time",
+              "arguments": {
+                "start_time": "2026-11-03T12:00:00+08:00",
+                "end_time": "2026-11-03T18:00:00+08:00"
+              },
+              "result": {
+                "ok": true,
+                "orders": [
+                  {
+                    "order_reference": "#2036",
+                    "placed_at": "2026-11-03T13:30:00+08:00",
+                    "amount": "79.90",
+                    "currency": "USD",
+                    "summary": "无线耳机",
+                    "fulfilled": false
+                  },
+                  {
+                    "order_reference": "#2037",
+                    "placed_at": "2026-11-03T16:20:00+08:00",
+                    "amount": "39.90",
+                    "currency": "USD",
+                    "summary": "无线鼠标",
+                    "fulfilled": false
+                  }
+                ],
+                "match_count": 2,
+                "truncated": false,
+                "scope": "server-bound fixture customer"
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "request_order_reference",
+                  "args": {
+                    "reason": "昨天下午有两个订单（#2036 无线耳机 13:30、#2037 无线鼠标 16:20），请告知要取消哪一个。"
+                  },
+                  "id": "call_00_iU1jv1PvGgGHrDAAu7ZO1266",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1143,
+                "output_tokens": 147,
+                "total_tokens": 1290,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "request_order_reference",
+              "arguments": {
+                "reason": "昨天下午有两个订单（#2036 无线耳机 13:30、#2037 无线鼠标 16:20），请告知要取消哪一个。"
+              },
+              "result": {
+                "ok": true,
+                "customer_selected_reference": "#2037",
+                "order": {
+                  "order_reference": "#2037",
+                  "placed_at": "2026-11-03T16:20:00+08:00",
+                  "amount": "39.90",
+                  "currency": "USD",
+                  "summary": "无线鼠标",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2037"
+                  },
+                  "id": "call_00_RYY6K4H69kGSXSYkUkfB2402",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1378,
+                "output_tokens": 41,
+                "total_tokens": 1419,
+                "input_token_details": {
+                  "cache_read": 1152
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2037"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2037",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2037",
+          "customer_selected_reference": "#2037",
+          "reason": null
+        }
+      },
+      "writes_before_approval": 0,
+      "approved_status": 200,
+      "approved": {
+        "ticket_id": "multiple",
+        "ticket_text": "帮我取消昨天下午下的那个订单。",
+        "created_at": "2026-11-04T13:17:18.653530Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#2037"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2037",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#2037",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.9
+            },
+            "outcome": "submitted",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": {
+              "action": "cancel_order",
+              "shopify_job_id": "demo-job-1",
+              "operation_status": "submitted",
+              "simulated": true,
+              "job_reported_done": true,
+              "refund_status": "unverified",
+              "summary": "Shopify accepted the cancellation request. Cancellation completion and payment settlement have not been verified."
+            },
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "TEST ORDERS (OFFLINE DEMO): No real order or payment was changed.\n\nOrder #2037: cancellation request submitted. Cancellation completion and refund settlement have not been verified; please await confirmation.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "search_orders_by_time",
+                  "args": {
+                    "start_time": "2026-11-03T12:00:00+08:00",
+                    "end_time": "2026-11-03T18:00:00+08:00"
+                  },
+                  "id": "call_00_8baSo9Ni6ElttiOLsV769294",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 885,
+                "output_tokens": 97,
+                "total_tokens": 982,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "search_orders_by_time",
+              "arguments": {
+                "start_time": "2026-11-03T12:00:00+08:00",
+                "end_time": "2026-11-03T18:00:00+08:00"
+              },
+              "result": {
+                "ok": true,
+                "orders": [
+                  {
+                    "order_reference": "#2036",
+                    "placed_at": "2026-11-03T13:30:00+08:00",
+                    "amount": "79.90",
+                    "currency": "USD",
+                    "summary": "无线耳机",
+                    "fulfilled": false
+                  },
+                  {
+                    "order_reference": "#2037",
+                    "placed_at": "2026-11-03T16:20:00+08:00",
+                    "amount": "39.90",
+                    "currency": "USD",
+                    "summary": "无线鼠标",
+                    "fulfilled": false
+                  }
+                ],
+                "match_count": 2,
+                "truncated": false,
+                "scope": "server-bound fixture customer"
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "request_order_reference",
+                  "args": {
+                    "reason": "昨天下午有两个订单（#2036 无线耳机 13:30、#2037 无线鼠标 16:20），请告知要取消哪一个。"
+                  },
+                  "id": "call_00_iU1jv1PvGgGHrDAAu7ZO1266",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1143,
+                "output_tokens": 147,
+                "total_tokens": 1290,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "request_order_reference",
+              "arguments": {
+                "reason": "昨天下午有两个订单（#2036 无线耳机 13:30、#2037 无线鼠标 16:20），请告知要取消哪一个。"
+              },
+              "result": {
+                "ok": true,
+                "customer_selected_reference": "#2037",
+                "order": {
+                  "order_reference": "#2037",
+                  "placed_at": "2026-11-03T16:20:00+08:00",
+                  "amount": "39.90",
+                  "currency": "USD",
+                  "summary": "无线鼠标",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2037"
+                  },
+                  "id": "call_00_RYY6K4H69kGSXSYkUkfB2402",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1378,
+                "output_tokens": 41,
+                "total_tokens": 1419,
+                "input_token_details": {
+                  "cache_read": 1152
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2037"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2037",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2037",
+          "customer_selected_reference": "#2037",
+          "reason": null
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "missing",
+      "question": "帮我取消订单。",
+      "http_status": 201,
+      "initial": {
+        "ticket_id": "missing",
+        "ticket_text": "帮我取消订单。",
+        "created_at": "2026-11-04T13:17:27.720183Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": null,
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": "暂时无法核实要处理的订单，已转人工检查；未执行取消或退款。",
+        "ticket_outcome": "escalated_to_human",
+        "escalation_reason": "Expected one order-discovery tool request.",
+        "order_resolution": {
+          "status": "failed",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [],
+              "usage": {
+                "input_tokens": 881,
+                "output_tokens": 30,
+                "total_tokens": 911,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            }
+          ],
+          "selected_reference": null,
+          "customer_selected_reference": null,
+          "reason": "Expected one order-discovery tool request."
+        }
+      },
+      "expected": {
+        "id": "missing",
+        "question": "帮我取消订单。",
+        "status": "waiting_for_customer",
+        "answer": "#2036",
+        "reference": "#2036"
+      },
+      "writes_before_approval": 0,
+      "passed": false
+    },
+    {
+      "id": "empty",
+      "question": "帮我取消昨天上午9点到10点下的订单。",
+      "http_status": 201,
+      "initial": {
+        "ticket_id": "empty",
+        "ticket_text": "帮我取消昨天上午9点到10点下的订单。",
+        "created_at": "2026-11-04T13:17:31.274095Z",
+        "status": "waiting_for_customer",
+        "pending_approvals": [],
+        "pending_clarifications": [
+          {
+            "interrupt_id": "f0114d1a5e819f6e794b0655cde5533e",
+            "kind": "clarification",
+            "task_id": "task-1",
+            "field": "order_reference",
+            "question": "请选择要取消的订单；没有匹配项时请提供订单号。",
+            "choices": [],
+            "resolver": "order_agent"
+          }
+        ],
+        "clarification_history": [],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": null,
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": null
+      },
+      "expected": {
+        "id": "empty",
+        "question": "帮我取消昨天上午9点到10点下的订单。",
+        "status": "waiting_for_customer",
+        "answer": "#2036",
+        "reference": "#2036"
+      },
+      "continued_status": 200,
+      "continued": {
+        "ticket_id": "empty",
+        "ticket_text": "帮我取消昨天上午9点到10点下的订单。",
+        "created_at": "2026-11-04T13:17:31.274095Z",
+        "status": "pending_approval",
+        "pending_approvals": [
+          {
+            "interrupt_id": "c13c62991a0d314b411afaf7e01e8d64",
+            "task_id": "task-1",
+            "question": "Approve this action?",
+            "action": "cancel_order",
+            "order": "#2036",
+            "requested_reference": "#2036",
+            "amount": "79.90 USD",
+            "gate_rule": "cancel_order_unfulfilled",
+            "gate_reason": "The order is unfulfilled and can be cancelled.",
+            "flags": [],
+            "current_shipping_address": null,
+            "new_shipping_address": null
+          }
+        ],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#2036"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [],
+        "reply_draft": null,
+        "ticket_outcome": null,
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "search_orders_by_time",
+                  "args": {
+                    "start_time": "2026-11-03T09:00:00+08:00",
+                    "end_time": "2026-11-03T10:00:00+08:00"
+                  },
+                  "id": "call_00_lnSAQJr118FTQWuQmwC31043",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 888,
+                "output_tokens": 111,
+                "total_tokens": 999,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "search_orders_by_time",
+              "arguments": {
+                "start_time": "2026-11-03T09:00:00+08:00",
+                "end_time": "2026-11-03T10:00:00+08:00"
+              },
+              "result": {
+                "ok": true,
+                "orders": [],
+                "match_count": 0,
+                "truncated": false,
+                "scope": "server-bound fixture customer"
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "request_order_reference",
+                  "args": {
+                    "reason": "No orders found for yesterday 09:00–10:00 (UTC+08:00). Please provide the order number."
+                  },
+                  "id": "call_00_CvktjaH1Z1mABhfKVJxk0849",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1043,
+                "output_tokens": 95,
+                "total_tokens": 1138,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "request_order_reference",
+              "arguments": {
+                "reason": "No orders found for yesterday 09:00–10:00 (UTC+08:00). Please provide the order number."
+              },
+              "result": {
+                "ok": true,
+                "customer_selected_reference": "#2036",
+                "order": {
+                  "order_reference": "#2036",
+                  "placed_at": "2026-11-03T13:30:00+08:00",
+                  "amount": "79.90",
+                  "currency": "USD",
+                  "summary": "无线耳机",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_qQYGnCyO0qPhXHd65SwV0204",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1226,
+                "output_tokens": 110,
+                "total_tokens": 1336,
+                "input_token_details": {
+                  "cache_read": 1024
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2036",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2036",
+          "customer_selected_reference": "#2036",
+          "reason": null
+        }
+      },
+      "writes_before_approval": 0,
+      "approved_status": 200,
+      "approved": {
+        "ticket_id": "empty",
+        "ticket_text": "帮我取消昨天上午9点到10点下的订单。",
+        "created_at": "2026-11-04T13:17:31.274095Z",
+        "status": "resolved",
+        "pending_approvals": [],
+        "pending_clarifications": [],
+        "clarification_history": [
+          {
+            "task_id": "task-1",
+            "field": "order_reference",
+            "value": "#2036"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "task-1",
+            "intent": "cancel_order",
+            "order_reference": "#2036",
+            "requested_action": "cancel_order",
+            "new_shipping_address": null,
+            "confidence": 0.9
+          }
+        ],
+        "task_results": [
+          {
+            "task_id": "task-1",
+            "task": {
+              "task_id": "task-1",
+              "intent": "cancel_order",
+              "order_reference": "#2036",
+              "requested_action": "cancel_order",
+              "new_shipping_address": null,
+              "confidence": 0.9
+            },
+            "outcome": "submitted",
+            "gate_verdict": {
+              "passed": true,
+              "rule": "cancel_order_unfulfilled",
+              "reason": "The order is unfulfilled and can be cancelled.",
+              "flags": []
+            },
+            "action_result": {
+              "action": "cancel_order",
+              "shopify_job_id": "demo-job-1",
+              "operation_status": "submitted",
+              "simulated": true,
+              "job_reported_done": true,
+              "refund_status": "unverified",
+              "summary": "Shopify accepted the cancellation request. Cancellation completion and payment settlement have not been verified."
+            },
+            "policy_citations": []
+          }
+        ],
+        "reply_draft": "TEST ORDERS (OFFLINE DEMO): No real order or payment was changed.\n\nOrder #2036: cancellation request submitted. Cancellation completion and refund settlement have not been verified; please await confirmation.\n\nThe Support Team",
+        "ticket_outcome": "resolved",
+        "escalation_reason": null,
+        "order_resolution": {
+          "status": "resolved",
+          "events": [
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "search_orders_by_time",
+                  "args": {
+                    "start_time": "2026-11-03T09:00:00+08:00",
+                    "end_time": "2026-11-03T10:00:00+08:00"
+                  },
+                  "id": "call_00_lnSAQJr118FTQWuQmwC31043",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 888,
+                "output_tokens": 111,
+                "total_tokens": 999,
+                "input_token_details": {
+                  "cache_read": 640
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "search_orders_by_time",
+              "arguments": {
+                "start_time": "2026-11-03T09:00:00+08:00",
+                "end_time": "2026-11-03T10:00:00+08:00"
+              },
+              "result": {
+                "ok": true,
+                "orders": [],
+                "match_count": 0,
+                "truncated": false,
+                "scope": "server-bound fixture customer"
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "request_order_reference",
+                  "args": {
+                    "reason": "No orders found for yesterday 09:00–10:00 (UTC+08:00). Please provide the order number."
+                  },
+                  "id": "call_00_CvktjaH1Z1mABhfKVJxk0849",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1043,
+                "output_tokens": 95,
+                "total_tokens": 1138,
+                "input_token_details": {
+                  "cache_read": 896
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "request_order_reference",
+              "arguments": {
+                "reason": "No orders found for yesterday 09:00–10:00 (UTC+08:00). Please provide the order number."
+              },
+              "result": {
+                "ok": true,
+                "customer_selected_reference": "#2036",
+                "order": {
+                  "order_reference": "#2036",
+                  "placed_at": "2026-11-03T13:30:00+08:00",
+                  "amount": "79.90",
+                  "currency": "USD",
+                  "summary": "无线耳机",
+                  "fulfilled": false
+                }
+              }
+            },
+            {
+              "kind": "model",
+              "tool_calls": [
+                {
+                  "name": "select_order",
+                  "args": {
+                    "order_reference": "#2036"
+                  },
+                  "id": "call_00_qQYGnCyO0qPhXHd65SwV0204",
+                  "type": "tool_call"
+                }
+              ],
+              "usage": {
+                "input_tokens": 1226,
+                "output_tokens": 110,
+                "total_tokens": 1336,
+                "input_token_details": {
+                  "cache_read": 1024
+                },
+                "output_token_details": {}
+              }
+            },
+            {
+              "kind": "tool",
+              "name": "select_order",
+              "arguments": {
+                "order_reference": "#2036"
+              },
+              "result": {
+                "ok": true,
+                "selected_reference": "#2036",
+                "next": "mandatory lookup, policy gate and human approval; NOT cancelled"
+              }
+            }
+          ],
+          "selected_reference": "#2036",
+          "customer_selected_reference": "#2036",
+          "reason": null
+        }
+      },
+      "passed": true
+    }
+  ],
+  "preflight": {
+    "usage": {
+      "input_tokens": 9,
+      "output_tokens": 1,
+      "total_tokens": 10,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {}
+    },
+    "model": "deepseek-flash"
+  },
+  "passed": 3,
+  "total": 4
+}
